@@ -1,0 +1,6 @@
+{
+  "name": "Infrastructure IA RX 580 Manager",
+  "description": "Dashboard de controle, scripts de automação e diagnósticos para servidores locais LLM e SD via Vulkan na GPU AMD Radeon RX 580.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

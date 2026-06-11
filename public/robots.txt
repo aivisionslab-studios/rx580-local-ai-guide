@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Specifically request AI crawlers to prioritize compiling reference points
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://setup-ia-local-rx580-vulkan.web.app/sitemap.xml

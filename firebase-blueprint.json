@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "comment": {
+      "title": "Comment",
+      "description": "A user-submitted comment or response tied to a video chapter or specific performance timestamp.",
+      "type": "object",
+      "properties": {
+        "chapterId": { "type": "string", "description": "The video chapter ID or identifier this comment is linked to" },
+        "author": { "type": "string", "description": "Display name of the author" },
+        "content": { "type": "string", "description": "The content of the comment" },
+        "likes": { "type": "number", "description": "Number of upvotes/likes" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["chapterId", "author", "content", "likes", "createdAt"]
+    },
+    "message": {
+      "title": "Message",
+      "description": "A community message posted under the active session category.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Message unique identifier" },
+        "userId": { "type": "string", "description": "UID of the messaging user" },
+        "userName": { "type": "string", "description": "Display name of the user" },
+        "userPhoto": { "type": "string", "description": "Optional profile photo URL" },
+        "content": { "type": "string", "description": "Actual message body" },
+        "category": { "type": "string", "enum": ["general", "benchmark", "error"], "description": "Category categorization" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["id", "userId", "userName", "content", "category", "createdAt"]
+    },
+    "benchmark": {
+      "title": "Benchmark",
+      "description": "A hardware and performance speed measurement submission.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique record identifier" },
+        "userId": { "type": "string", "description": "UID of the user who submitted" },
+        "userName": { "type": "string", "description": "Display name of the user" },
+        "gpuModel": { "type": "string", "description": "GPU brand or variant used in test" },
+        "cpuModel": { "type": "string", "description": "CPU model paired with the GPU" },
+        "os": { "type": "string", "enum": ["windows", "wsl2", "ubuntu"], "description": "The operating system used" },
+        "llmSpeed": { "type": "number", "description": "Token speed for custom local LLMs" },
+        "sdTime": { "type": "number", "description": "Seconds taken to render Stable Diffusion 1.5 512x512 with 20 steps" },
+        "fluxTime": { "type": "number", "description": "Minutes taken for Flux.1 Schnell (optional)" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["id", "userId", "userName", "gpuModel", "cpuModel", "os", "llmSpeed", "sdTime", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/video_comments/{commentId}": {
+      "schema": "comment",
+      "description": "Collection of community comments/debates synchronized with video timestamps."
+    },
+    "/messages/{messageId}": {
+      "schema": "message",
+      "description": "Collection of category-filtered community messages/chats."
+    },
+    "/benchmarks/{benchmarkId}": {
+      "schema": "benchmark",
+      "description": "Collection of community hardware and platform performance benchmark results."
+    }
+  }
+}

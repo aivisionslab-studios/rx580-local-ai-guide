@@ -1,0 +1,380 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base custom styles for dynamic HTML sections within dangerouslySetInnerHTML */
+.tbl {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  background-color: #0c0d10;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tbl table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: inherit;
+  font-size: 0.8rem;
+  min-width: 600px; /* target minimum width to enforce clean column structure */
+}
+
+.tbl th {
+  padding: 10px 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #111215;
+}
+
+.tbl td {
+  padding: 10px 14px;
+  color: #94a3b8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  line-height: 1.5;
+}
+
+.tbl tr:last-child td {
+  border-bottom: none;
+}
+
+.tbl tr:hover td {
+  background-color: rgba(255, 255, 255, 0.01);
+  color: #fff;
+}
+
+.tbl tr.hig td {
+  background-color: rgba(225, 29, 72, 0.04);
+  border-left: 2px solid #E11D48;
+  color: #fff;
+}
+
+.tbl tr.hig td strong {
+  color: #fca5a5;
+}
+
+/* Custom error block container */
+.err {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background-color: rgba(239, 68, 68, 0.02);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-left: 3px solid #ef4444;
+  border-radius: 6px;
+}
+
+.err-t {
+  display: block;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #ef4444;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.err p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+/* Code layout blocks */
+.code {
+  position: relative;
+  margin: 1rem 0;
+  background-color: #050506;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.code-lang {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #475569;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.code pre {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  overflow-x: auto;
+  white-space: pre !important;
+  word-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.code.ok {
+  background-color: rgba(34, 197, 94, 0.01);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  border-left: 3px solid #22c55e;
+}
+
+.code.ok pre {
+  color: #a7f3d0;
+}
+
+/* Anchor styles inside parsed blocks */
+div[dangerouslySetInnerHTML] p {
+  font-size: 0.825rem;
+  line-height: 1.8;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+/* Style the section descriptions as code comments "//" */
+section > p.text-xs {
+  font-family: var(--font-mono) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  color: #475569 !important;
+}
+
+section > p.text-xs:before {
+  content: "// " !important;
+}
+
+div[dangerouslySetInnerHTML] p strong {
+  color: #fff;
+}
+
+div[dangerouslySetInnerHTML] p code,
+.card code,
+code {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  border-radius: 4px;
+  word-break: break-word;
+  white-space: normal;
+}
+
+div[dangerouslySetInnerHTML] ul {
+  font-size: 0.825rem;
+  margin-bottom: 1.25rem;
+}
+
+div[dangerouslySetInnerHTML] ul li strong {
+  color: #fff;
+}
+
+/* Custom background animations & grid */
+.bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Widescreen Desktop Grid Layout Shell */
+.layout-shell {
+  display: block; /* Mobile fallback */
+  width: 100%;
+}
+
+@media (min-width: 1100px) {
+  .layout-shell {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .sidebar-container {
+    position: sticky !important;
+    top: 56px !important;
+    height: calc(100vh - 56px) !important;
+    width: 280px !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background-color: #0D0E11 !important;
+    transform: none !important;
+    z-index: 40 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .sidebar-overlay {
+    display: none !important;
+  }
+
+  .main-viewport {
+    width: 100%;
+    min-width: 0;
+    padding-top: 112px !important;
+    padding-bottom: 96px !important;
+  }
+}
+
+/* Mobile-first drawer styles (below 1100px breakpoint) */
+@media (max-width: 1099.98px) {
+  .sidebar-container {
+    position: fixed !important;
+    top: 56px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 280px !important;
+    z-index: 1000 !important;
+    background-color: #0D0E11 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .sidebar-container.open {
+    transform: translateX(0) !important;
+  }
+
+  .sidebar-overlay {
+    position: fixed !important;
+    top: 56px !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(4px) !important;
+    z-index: 999 !important;
+    transition: opacity 0.3s ease !important;
+  }
+
+  .main-viewport {
+    width: 100%;
+    padding-top: 104px !important;
+    padding-inline: 1.25rem !important;
+    padding-bottom: 6rem !important;
+  }
+}
+
+/* Desktop content grid sizing constraints - expansivo de monitor ultrawide até 2200px */
+.desktop-content {
+  width: 100%;
+  max-width: 2200px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 48px);
+}
+
+/* Unifying display/typography with clamp to prevent overflows and create high-tech titles */
+h1, .hero-title-clamp {
+  font-size: clamp(1.8rem, 4.5vw, 3.5rem) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -2px !important;
+}
+
+h2, .section-title-clamp, .sh-t {
+  font-family: 'Syne', var(--font-sans) !important;
+  font-size: clamp(1.2rem, 3vw, 1.65rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.5px !important;
+  color: #ffffff !important;
+}
+
+h3 {
+  font-size: clamp(0.95rem, 2vw, 1.15rem) !important;
+}
+
+/* Uniform hide-show triggers based on the unified 1100px breakpoint */
+@media (min-width: 1100px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+  .show-on-desktop {
+    display: block !important;
+  }
+  .show-on-desktop-flex {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 1099.98px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .show-on-mobile {
+    display: block !important;
+  }
+  .show-on-mobile-flex {
+    display: flex !important;
+  }
+}
+
+/* Widescreen flexible auto-fit grids replacing rigid grids */
+.grid-autofit-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.grid-autofit-guerrilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.grid-autofit-footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Custom Scrollbars to match engineering HUD look and feel */
+::-webkit-scrollbar,
+.scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track,
+.scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb,
+.scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(225, 29, 72, 0.25);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover,
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(225, 29, 72, 0.5);
+}
+
+/* Custom print style optimization */
+@media print {
+  body {
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+  aside, nav, #back-to-top, .g-btn, #reading-bar, .sidebar-overlay {
+    display: none !important;
+  }
+  main {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+}

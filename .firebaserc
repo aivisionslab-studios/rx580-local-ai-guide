@@ -1,0 +1,5 @@
+{
+  "projects": {
+    "default": "setup-ia-local-rx580-vulkan"
+  }
+}
