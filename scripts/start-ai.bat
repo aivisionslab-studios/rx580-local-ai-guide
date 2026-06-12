@@ -24,7 +24,7 @@ timeout /t 3 /nobreak >nul
 :: Start Stable Diffusion Server
 echo [+] Launching sd-server (DreamShaper 8 via Vulkan)...
 E:
-cd "E:\stable-diffusion.cpp\build\build\bin\Release" || cd "E:\stable-diffusion.cpp\build\bin\Release"
+cd "E:\stable-diffusion.cpp\build\bin\Release"
 start "SD Server - Vulkan RX580" sd-server.exe --listen-ip 0.0.0.0 --listen-port 7860 ^
   -m "E:\models\dreamshaper8.gguf"
 

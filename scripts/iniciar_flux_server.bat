@@ -8,7 +8,7 @@ timeout /t 2 /nobreak >nul
 
 echo [+] Launching FLUX Schnell Hybrid (GPU+CPU)...
 E:
-cd "E:\stable-diffusion.cpp\build\build\bin\Release" || cd "E:\stable-diffusion.cpp\build\bin\Release"
+cd "E:\stable-diffusion.cpp\build\bin\Release"
 
 sd-server.exe --listen-ip 0.0.0.0 --listen-port 7860 ^
   --diffusion-model "E:\models\flux1-schnell-q4_k.gguf" ^

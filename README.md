@@ -206,7 +206,7 @@ cmake --build . --config Release -j20
 
 # Start SD server (SD 1.5)
 E:
-cd "E:\stable-diffusion.cpp\build\build\bin\Release"
+cd "E:\stable-diffusion.cpp\build\bin\Release"
 .\sd-server.exe --listen-ip 0.0.0.0 --listen-port 7860 `
   -m "E:\models\dreamshaper8.gguf"
 
@@ -539,7 +539,7 @@ timeout /t 3 /nobreak >nul
 
 :: Start SD server (Vulkan)
 E:
-cd "E:\stable-diffusion.cpp\build\build\bin\Release"
+cd "E:\stable-diffusion.cpp\build\bin\Release"
 sd-server.exe --listen-ip 0.0.0.0 --listen-port 7860 ^
   -m "E:\models\dreamshaper8.gguf"
 

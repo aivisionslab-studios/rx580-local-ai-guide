@@ -22,7 +22,7 @@ Our budget constraints dictate that we only have **8,192 MB of VRAM**. Therefore
 Ensure your model files exist inside `E:\models\`.
 
 ```powershell
-# E:\stable-diffusion.cpp\build\build\bin\Release\sd-server.exe (or equivalent bin directory)
+# E:\stable-diffusion.cpp\build\bin\Release\sd-server.exe (or equivalent bin directory)
 .\sd-server.exe --listen-ip 0.0.0.0 --listen-port 7860 `
   --diffusion-model "E:\models\flux1-schnell-q4_k.gguf" `
   --vae "E:\models\ae.safetensors" `
