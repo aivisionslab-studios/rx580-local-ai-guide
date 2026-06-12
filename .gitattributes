@@ -1,0 +1,13 @@
+# Definição de quebras de linha padrão
+* text=auto eol=lf
+
+# Força arquivos binários a NUNCA serem modificados por quebras de linha
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
