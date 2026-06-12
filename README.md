@@ -15,7 +15,7 @@ AIVisionsLab · Polaris Revival Project · 2026
 [![Backend: Vulkan](https://img.shields.io/badge/Backend-Vulkan-orange.svg)]()
 [![OS: Windows + Linux](https://img.shields.io/badge/OS-Windows%2010%2F11%20%2B%20Ubuntu%2026.04-blue.svg)]()
 [![Docs](https://img.shields.io/badge/Docs-Firebase%20Portal-brightgreen.svg)](https://setup-ia-local-rx580-vulkan.web.app)
-[![YouTube](https://img.shields.io/badge/YouTube-AIVisionsLab-red.svg)](https://youtube.com/@aivisionslab)
+[![YouTube](https://img.shields.io/badge/YouTube-AIVisionsLab-red.svg)](https://www.youtube.com/@aivisionslab-hub)
 
 ---
 
