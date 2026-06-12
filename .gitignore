@@ -1,8 +1,41 @@
 node_modules/
-build/
+.pnpm-store/
+
+# Arquivos de Build e Distribuição Estática
 dist/
-coverage/
-.DS_Store
+build/
+.next/
+out/
+
+# Dados Locais e Chaves Privadas (Extremamente Importante)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.config.json
+firebase-applet-config.json
+firebase-blueprint.json
+
+# Arquivos de Configuração do Firebase e CLI local
+.firebase/
+.firebaserc
+firestore.rules
+
+# Backups e arquivos de compactação do desenvolvedor
+*.zip
+*.tar.gz
+*.rar
+backup/
 *.log
-.env*
-!.env.example
+
+# Arquivos temporários do Sistema Operacional e Editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
