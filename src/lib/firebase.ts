@@ -1,7 +1,20 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import firebaseConfig from "../../firebase-applet-config.json";
+
+// Safe Firebase Configuration Object
+// Using environment variables with safe defaults so that deletions, local builds or repository transfers will never crash compilation.
+const metaEnv = (import.meta as any).env || {};
+
+const firebaseConfig = {
+  apiKey: metaEnv.VITE_FIREBASE_API_KEY || "AIzaSyD-dummy-api-key-for-compilation-only",
+  authDomain: metaEnv.VITE_FIREBASE_AUTH_DOMAIN || "setup-ia-local-rx580-vulkan.firebaseapp.com",
+  projectId: metaEnv.VITE_FIREBASE_PROJECT_ID || "setup-ia-local-rx580-vulkan",
+  storageBucket: metaEnv.VITE_FIREBASE_STORAGE_BUCKET || "setup-ia-local-rx580-vulkan.appspot.com",
+  messagingSenderId: metaEnv.VITE_FIREBASE_MESSAGING_SENDER_ID || "000000000000",
+  appId: metaEnv.VITE_FIREBASE_APP_ID || "1:000000000000:web:0000000000000000000000",
+  firestoreDatabaseId: metaEnv.VITE_FIREBASE_DATABASE_ID || "(default)"
+};
 
 // Initialize Firebase App
 const app = initializeApp(firebaseConfig);
