@@ -11,9 +11,9 @@ AIVisionsLab · Polaris Revival Project · 2026
 > **GPU from 2017. SOTA AI in 2026. No CUDA. No ROCm. No cloud. No excuses.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![GPU: AMD RX 580](https://img.shields.io/badge/GPU-AMD%20RX%20580%208GB-red.svg)]()
-[![Backend: Vulkan](https://img.shields.io/badge/Backend-Vulkan-orange.svg)]()
-[![OS: Windows + Linux](https://img.shields.io/badge/OS-Windows%2010%2F11%20%2B%20Ubuntu%2026.04-blue.svg)]()
+![GPU: AMD RX 580](https://img.shields.io/badge/GPU-AMD%20RX%20580%208GB-red.svg)
+![Backend: Vulkan](https://img.shields.io/badge/Backend-Vulkan-orange.svg)
+![OS: Windows + Linux](https://img.shields.io/badge/OS-Windows%2010%2F11%20%2B%20Ubuntu%2026.04-blue.svg)
 [![Docs](https://img.shields.io/badge/Docs-Firebase%20Portal-brightgreen.svg)](https://setup-ia-local-rx580-vulkan.web.app)
 [![YouTube](https://img.shields.io/badge/YouTube-AIVisionsLab-red.svg)](https://www.youtube.com/@aivisionslab-hub)
 
@@ -206,7 +206,7 @@ cmake --build . --config Release -j20
 
 # Start SD server (SD 1.5)
 E:
-cd "E:\stable-diffusion.cpp\build\bin\Release"
+cd "E:\stable-diffusion.cpp\build\build\bin\Release"
 .\sd-server.exe --listen-ip 0.0.0.0 --listen-port 7860 `
   -m "E:\models\dreamshaper8.gguf"
 
@@ -539,7 +539,7 @@ timeout /t 3 /nobreak >nul
 
 :: Start SD server (Vulkan)
 E:
-cd "E:\stable-diffusion.cpp\build\bin\Release"
+cd "E:\stable-diffusion.cpp\build\build\bin\Release"
 sd-server.exe --listen-ip 0.0.0.0 --listen-port 7860 ^
   -m "E:\models\dreamshaper8.gguf"
 
