@@ -94,4 +94,28 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Section 11 Anchor: Whisper translation and subtitle generation -->
+  <url>
+    <loc>https://setup-ia-local-rx580-vulkan.web.app/#audio_srt_ptbr</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Section 12 Anchor: Qwen 35B Inference Limits -->
+  <url>
+    <loc>https://setup-ia-local-rx580-vulkan.web.app/#limit_qwen_35b</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Section 13 Anchor: Qwen 35B Final Proofs and Internal Reasoning -->
+  <url>
+    <loc>https://setup-ia-local-rx580-vulkan.web.app/#proving_hypothesis_35b</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
 </urlset>

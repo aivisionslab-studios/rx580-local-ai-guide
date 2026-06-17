@@ -84,16 +84,21 @@ export default function App() {
       const hash = window.location.hash;
       if (hash) {
         const id = hash.replace("#", "");
-        if (id === "linux_nativo") {
+        let targetId = id;
+        // Normalize hyphens to underscores to match our DOM elements
+        if (!document.getElementById(targetId)) {
+          targetId = id.replace(/-/g, "_");
+        }
+        if (targetId === "linux_nativo") {
           setCurrentPage("linux_native");
         } else {
           setCurrentPage("master_docs");
         }
         setTimeout(() => {
-          const el = document.getElementById(id);
+          const el = document.getElementById(targetId);
           if (el) {
             el.scrollIntoView({ behavior: "smooth", block: "start" });
-            setActiveId(id);
+            setActiveId(targetId);
           }
         }, 600);
       }
@@ -546,7 +551,7 @@ export default function App() {
               <div className="sid-group-lbl text-[9px] font-bold text-[#E11D48] tracking-[1.5px] uppercase mt-4 mb-1 px-3">
                 {"[6] "}{lang === "pt-BR" ? "ÁUDIO, WHISPER & LINUX NATIVO" : "AUDIO, WHISPER & NATIVE LINUX"}
               </div>
-              {["audio_rvc", "audio_whisper", "linux_nativo"]
+              {["audio_rvc", "audio_whisper", "audio_srt_ptbr", "limit_qwen_35b", "proving_hypothesis_35b", "linux_nativo"]
                 .filter(key => filteredSections.some(([fKey]) => fKey === key))
                 .map(key => {
                   const value = L.sections[key];
@@ -1457,6 +1462,54 @@ export default function App() {
               )}
             </section>
 
+            {/* Audio SRT Portuguese translation pipeline section */}
+            <section id="audio_srt_ptbr" className="scroll-mt-24 mt-16 pb-20">
+              <div className="sh flex items-center gap-3 mb-6">
+                <div className="sh-line h-4 w-1 bg-[#E11D48]" />
+                <h2 id="sh-audio_srt_ptbr" className="sh-t font-sans font-extrabold text-[#fff] text-sm uppercase tracking-[0.5px]">
+                  {L.sections.audio_srt_ptbr?.title}
+                </h2>
+              </div>
+              <p className="text-xs text-[#475569] mb-4 uppercase tracking-[0.5px]">
+                {L.sections.audio_srt_ptbr?.desc}
+              </p>
+              {L.sections.audio_srt_ptbr?.html && (
+                <div dangerouslySetInnerHTML={{ __html: L.sections.audio_srt_ptbr.html }} />
+              )}
+            </section>
+
+            {/* Limit Qwen 35b section */}
+            <section id="limit_qwen_35b" className="scroll-mt-24 mt-16 pb-20">
+              <div className="sh flex items-center gap-3 mb-6">
+                <div className="sh-line h-4 w-1 bg-[#E11D48]" />
+                <h2 id="sh-limit_qwen_35b" className="sh-t font-sans font-extrabold text-[#fff] text-sm uppercase tracking-[0.5px]">
+                  {L.sections.limit_qwen_35b?.title}
+                </h2>
+              </div>
+              <p className="text-xs text-[#475569] mb-4 uppercase tracking-[0.5px]">
+                {L.sections.limit_qwen_35b?.desc}
+              </p>
+              {L.sections.limit_qwen_35b?.html && (
+                <div dangerouslySetInnerHTML={{ __html: L.sections.limit_qwen_35b.html }} />
+              )}
+            </section>
+
+            {/* Proving Hypothesis 35b section */}
+            <section id="proving_hypothesis_35b" className="scroll-mt-24 mt-16 pb-20">
+              <div className="sh flex items-center gap-3 mb-6">
+                <div className="sh-line h-4 w-1 bg-[#E11D48]" />
+                <h2 id="sh-proving_hypothesis_35b" className="sh-t font-sans font-extrabold text-[#fff] text-sm uppercase tracking-[0.5px]">
+                  {L.sections.proving_hypothesis_35b?.title}
+                </h2>
+              </div>
+              <p className="text-xs text-[#475569] mb-4 uppercase tracking-[0.5px]">
+                {L.sections.proving_hypothesis_35b?.desc}
+              </p>
+              {L.sections.proving_hypothesis_35b?.html && (
+                <div dangerouslySetInnerHTML={{ __html: L.sections.proving_hypothesis_35b.html }} />
+              )}
+            </section>
+
             {/* Linux Nativo section */}
             <section id="linux_nativo" className="scroll-mt-24 mt-16 pb-20">
               <div className="sh flex items-center gap-3 mb-6">
@@ -1548,6 +1601,114 @@ export default function App() {
             </div>
           )}
 
+          {/* ── Featured Dev.to Publications ── */}
+          <div className="devto-publications-section mt-16 pt-10 border-t border-white/5">
+            <p id="ft-publications-title" className="text-[10px] text-[#475569] tracking-[2px] mb-6 uppercase font-bold text-left flex items-center gap-2">
+              <span className="w-1.5 h-1.5 bg-[#E11D48] rounded-full animate-pulse" />
+              📰 ARTIGOS DESTAQUE EN/RU // DEV.TO PUBLICATIONS
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              {/* Card 1 */}
+              <div className="flex flex-col bg-[#0D0106]/85 border border-[#E11D48]/15 rounded-md overflow-hidden hover:border-[#E11D48]/45 transition-all duration-300 group shadow-md">
+                <div className="relative h-32 overflow-hidden bg-black">
+                  <img 
+                    src="/og-image.png" 
+                    alt="Zapusk Flux Schnell" 
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
+                  />
+                  <div className="absolute top-2 left-2 bg-[#E11D48] text-white text-[9px] font-sans font-extrabold px-2 py-0.5 rounded tracking-wider uppercase">
+                    RU / РУССКИЙ
+                  </div>
+                </div>
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h5 className="font-sans font-bold text-white text-[13px] tracking-wide leading-snug mb-2 group-hover:text-[#E11D48] transition-colors duration-200">
+                      Запуск Flux Schnell 12B на AMD RX 580 8GB через Vulkan
+                    </h5>
+                    <p className="text-[11px] text-[#94a3b8] font-mono leading-relaxed mb-4">
+                      Guia arquitetural completo detalhando engenharia de baixo nível, Vulkan e ggml para acelerar Flux no Linux/Windows.
+                    </p>
+                  </div>
+                  <a
+                    href="https://dev.to/aivisionslab/zapusk-flux-schnell-12b-llm-na-ustarievshiei-amd-rx-580-8-gb-chieriez-vulkan-polnoie-arkhitiekturnoie-273d"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-mono text-center block w-full bg-white/[0.03] hover:bg-[#E11D48] border border-white/10 hover:border-[#E11D48] text-white hover:text-white py-2 rounded transition duration-200 text-decoration-none"
+                  >
+                    Ler Artigo Completo →
+                  </a>
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="flex flex-col bg-[#0D0106]/85 border border-[#E11D48]/15 rounded-md overflow-hidden hover:border-[#E11D48]/45 transition-all duration-300 group shadow-md">
+                <div className="relative h-32 overflow-hidden bg-black">
+                  <img 
+                    src="/og-image.png" 
+                    alt="Running Local AI Guide" 
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
+                  />
+                  <div className="absolute top-2 left-2 bg-[#E11D48] text-white text-[9px] font-sans font-extrabold px-2 py-0.5 rounded tracking-wider uppercase">
+                    EN / ENGLISH
+                  </div>
+                </div>
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h5 className="font-sans font-bold text-white text-[13px] tracking-wide leading-snug mb-2 group-hover:text-[#E11D48] transition-colors duration-200">
+                      Running local AI on an AMD RX 580 in 2026: The Vulkan Guide
+                    </h5>
+                    <p className="text-[11px] text-[#94a3b8] font-mono leading-relaxed mb-4">
+                      Empirical steps and custom compiles to unlock native localized inference utilizing open standards.
+                    </p>
+                  </div>
+                  <a
+                    href="https://dev.to/aivisionslab/running-local-ai-on-an-amd-rx-580-in-2026-the-complete-vulkan-guide-52a5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-mono text-center block w-full bg-white/[0.03] hover:bg-[#E11D48] border border-white/10 hover:border-[#E11D48] text-white hover:text-white py-2 rounded transition duration-200 text-decoration-none"
+                  >
+                    Read Full Article →
+                  </a>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div className="flex flex-col bg-[#0D0106]/85 border border-[#E11D48]/15 rounded-md overflow-hidden hover:border-[#E11D48]/45 transition-all duration-300 group shadow-md">
+                <div className="relative h-32 overflow-hidden bg-black">
+                  <img 
+                    src="/og-image.png" 
+                    alt="50 dollar GPU AI" 
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
+                  />
+                  <div className="absolute top-2 left-2 bg-[#E11D48] text-white text-[9px] font-sans font-extrabold px-2 py-0.5 rounded tracking-wider uppercase">
+                    EN / ENGLISH
+                  </div>
+                </div>
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h5 className="font-sans font-bold text-white text-[13px] tracking-wide leading-snug mb-2 group-hover:text-[#E11D48] transition-colors duration-200">
+                      I ran Flux Schnell & LLMs on a $50 GPU (No CUDA, No ROCm)
+                    </h5>
+                    <p className="text-[11px] text-[#94a3b8] font-mono leading-relaxed mb-4">
+                      Proving legacy Polaris hardware holds extreme utility when software pipelines are optimized.
+                    </p>
+                  </div>
+                  <a
+                    href="https://dev.to/aivisionslab/i-ran-flux-schnell-llms-on-a-50-gpu-no-cuda-no-cloud-no-rocm-55ap"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-mono text-center block w-full bg-white/[0.03] hover:bg-[#E11D48] border border-white/10 hover:border-[#E11D48] text-white hover:text-white py-2 rounded transition duration-200 text-decoration-none"
+                  >
+                    Read Full Article →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* ── Community Links Grid ── */}
           <div className="community-links mt-16 pt-10 border-t border-white/5">
             <p id="ft-ecosystem-title" className="text-[10px] text-[#475569] tracking-[2px] mb-4 uppercase font-bold text-left">
@@ -1618,14 +1779,7 @@ export default function App() {
               >
                 🎵 TikTok
               </a>
-              <a
-                href="https://www.reddit.com/user/AIVisionsLab-Studio/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-[#FF4500] border border-[#FF4500]/20 bg-[#FF4500]/5 px-4 py-2 rounded-md hover:bg-[#FF4500] hover:text-white transition flex items-center gap-2 text-decoration-none"
-              >
-                👾 Reddit
-              </a>
+
               <a
                 href="https://www.techpowerup.com/forums/members/aivisionslab-studio.258180/"
                 target="_blank"
@@ -1680,48 +1834,55 @@ export default function App() {
           </div>
 
           {/* Footer block */}
-          <footer className="mt-20 pt-10 border-t border-white/5 grid-autofit-footer">
-            <div className="ft-brand flex flex-col gap-2">
-              <span id="ft-brand-name" className="text-white font-sans font-extrabold text-[11px] tracking-[1.5px] uppercase">
-                {L.footer.brand}
-              </span>
-              <div id="ft-q1" className="ft-q text-xs text-[#475569] italic border-l-2 border-[#E11D48] pl-3 leading-relaxed">
-                {L.footer.q1}
+          <footer className="mt-20 pt-10 border-t border-white/5">
+            <div className="grid-autofit-footer">
+              <div className="ft-brand flex flex-col gap-2">
+                <span id="ft-brand-name" className="text-white font-sans font-extrabold text-[11px] tracking-[1.5px] uppercase">
+                  {L.footer.brand}
+                </span>
+                <div id="ft-q1" className="ft-q text-xs text-[#475569] italic border-l-2 border-[#E11D48] pl-3 leading-relaxed">
+                  {L.footer.q1}
+                </div>
+                <div id="ft-q2" className="ft-q text-xs text-[#475569] italic border-l-2 border-[#E11D48] pl-3 leading-relaxed">
+                  {L.footer.q2}
+                </div>
+                <div id="ft-note" className="text-[10px] text-[#E11D48] italic font-semibold mt-1">
+                  {L.footer.note}
+                </div>
               </div>
-              <div id="ft-q2" className="ft-q text-xs text-[#475569] italic border-l-2 border-[#E11D48] pl-3 leading-relaxed">
-                {L.footer.q2}
+              
+              <div className="ft-col flex flex-col gap-2">
+                <span id="ft-tech-label" className="ft-lbl text-[10px] text-[#475569] font-bold tracking-[1px] uppercase">
+                  {L.footer.tech_label}
+                </span>
+                <span className="ft-val text-xs text-[#64748b] leading-relaxed">
+                  Vulkan API / GGML Compiles<br />
+                  Vanilla JS / React Subsystems<br />
+                  Multi-GGUF Pipeline Integrations
+                </span>
               </div>
-              <div id="ft-note" className="text-[10px] text-[#E11D48] italic font-semibold mt-1">
-                {L.footer.note}
+
+              <div className="ft-col flex flex-col gap-2">
+                <span id="ft-authors-label" className="ft-lbl text-[10px] text-[#475569] font-bold tracking-[1px] uppercase">
+                  {L.footer.authors_label}
+                </span>
+                <span className="ft-val text-xs text-[#64748b] leading-relaxed">
+                  Andre Jota Silva (Laboratório Clandestino)<br />
+                  Claude-3.5-Sonnet (Anthropic)<br />
+                  Gemini-3.5-Flash (Silicon Co-pilot)<br />
+                  ChatGPT (GPT-5.5 - OpenAI)
+                </span>
               </div>
-            </div>
-            
-            <div className="ft-col flex flex-col gap-2">
-              <span id="ft-tech-label" className="ft-lbl text-[10px] text-[#475569] font-bold tracking-[1px] uppercase">
-                {L.footer.tech_label}
-              </span>
-              <span className="ft-val text-xs text-[#64748b] leading-relaxed">
-                Vulkan API / GGML Compiles<br />
-                Vanilla JS / React Subsystems<br />
-                Multi-GGUF Pipeline Integrations
-              </span>
             </div>
 
-            <div className="ft-col flex flex-col gap-2">
-              <span id="ft-authors-label" className="ft-lbl text-[10px] text-[#475569] font-bold tracking-[1px] uppercase">
-                {L.footer.authors_label}
-              </span>
-              <span className="ft-val text-xs text-[#64748b] leading-relaxed">
-                Andre Jota Silva (Laboratório Clandestino)<br />
-                Claude-3.5-Sonnet (Anthropic)<br />
-                Gemini-3.5-Flash (Silicon Co-pilot)<br />
-                ChatGPT (GPT-5.5 - OpenAI)
-              </span>
+            {/* Canonical Info paragraph */}
+            <div id="ft-canonical-info" className="text-[11px] text-[#64748b] leading-relaxed border-t border-white/5 pt-6 mt-8 font-mono max-w-4xl">
+              💡 <strong>Preservação & Cópia Oficial:</strong> A cópia oficial de produção deste projeto está hospedada no <a href="https://rx580-ai-local.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-[#E11D48] hover:underline font-bold">Vercel / Astro Portal</a>. Incentivamos que todos os pesquisadores, estudantes e entusiastas de hardware livre <strong>tenham, salvem e guardem uma cópia offline e local</strong> desta documentação para pesquisa e estudo independente. Toda essa potência já foi disponibilizada de forma facilitada através de nossos múltiplos métodos nativos de exportação (Guia Offline compile-ready .HTML, PDF para impressão e QR Code dinâmico).
             </div>
           </footer>
 
           {/* Lower footer copyright details */}
-          <div className="flex justify-between items-center text-[10px] text-[#1e293b] mt-10 border-t border-white/5 pt-4">
+          <div className="flex justify-between items-center text-[10px] text-[#475569] mt-10 border-t border-white/5 pt-4">
             <span id="ft-copyright">
               {L.footer.copyright}
             </span>

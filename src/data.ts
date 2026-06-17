@@ -211,16 +211,28 @@ const EN_SECTION_HEADERS: Record<string, { title: string; desc: string }> = {
     "desc": "Visual interactive history of how global developers restored usability to legacy GPUs."
   },
   "audio_rvc": {
-    "title": "31. LOCAL VOICE CONVERSION — APPLIO RVC ON AMD RX 580",
+    "title": "30. LOCAL VOICE CONVERSION — APPLIO RVC ON AMD RX 580",
     "desc": "Quickstart guides and VRAM panic mitigations for training and inference."
   },
   "audio_whisper": {
-    "title": "32. LOCAL AUDIO TRANSCRIBING — WHISPER.CPP ON AMD RX 580",
+    "title": "31. LOCAL AUDIO TRANSCRIBING — WHISPER.CPP ON AMD RX 580",
     "desc": "Transcribing audio/video with Vulkan GPU acceleration on Windows AMD."
   },
+  "audio_srt_ptbr": {
+    "title": "32. EN TO PT-BR TRANSLATION PIPELINE ON RX 580",
+    "desc": "Step-by-step pipeline from video (.mp4) to Portuguese subtitles (.srt) utilizing open backends without cloud dependencies."
+  },
   "linux_nativo": {
-    "title": "33. BARE-METAL LINUX — Ubuntu 26.04 LTS + RX 580 + Vulkan",
+    "title": "40. BARE-METAL LINUX — Ubuntu 26.04 LTS + RX 580 + Vulkan",
     "desc": "AIVisionsLab — Production-grade full native Linux stack documentation"
+  },
+  "limit_qwen_35b": {
+    "title": "33. LIMIT-TESTING — QWEN3.5 35B ON AMD RX 580 GDDR5",
+    "desc": "Full production logs and benchmarks of a 34.66B parameter model successfully run in hybrid Vulkan split."
+  },
+  "proving_hypothesis_35b": {
+    "title": "34. PROVING THE HYPOTHESIS — CURL, CTX-SIZE 8192 AND FIRST FULL RESPONSE",
+    "desc": "Conclusive physical trials validating ctx padding, client-side timeouts, and Q4_K_M vs Q6_K on legacy cores."
   }
 };
 
@@ -370,16 +382,28 @@ const ES_SECTION_HEADERS: Record<string, { title: string; desc: string }> = {
     "desc": "Recorrido histórico detallando cómo Vulkan reemplazó las APIs comerciales y revivió Polaris."
   },
   "audio_rvc": {
-    "title": "31. CONVERSIÓN DE VOZ LOCAL — APPLIO RVC EN AMD RX 580",
+    "title": "30. CONVERSIÓN DE VOZ LOCAL — APPLIO RVC EN AMD RX 580",
     "desc": "Inicio rápido y mitigación de pânico de VRAM para entrenamientos e inferencias."
   },
   "audio_whisper": {
-    "title": "32. TRANSCRIBIR AUDIO LOCAL — WHISPER.CPP EN AMD RX 580",
+    "title": "31. TRANSCRIBIR AUDIO LOCAL — WHISPER.CPP EN AMD RX 580",
     "desc": "Transcripción de audio/video con aceleración Vulkan GPU AMD en Windows."
   },
+  "audio_srt_ptbr": {
+    "title": "32. PIPELINE COMPLETO DE TRADUCCIÓN EN A PT-BR CON RX 580",
+    "desc": "Flujo de trabajo completo de traducción de video .mp4 a subtítulos .srt en portugués brasileño usando Vulkan."
+  },
   "linux_nativo": {
-    "title": "33. LINUX NATIVO — Ubuntu 26.04 LTS + RX 580 + Vulkan",
+    "title": "40. LINUX NATIVO — Ubuntu 26.04 LTS + RX 580 + Vulkan",
     "desc": "AIVisionsLab — Documentación de la pila de producción robusta en Linux puro"
+  },
+  "limit_qwen_35b": {
+    "title": "33. LLEVANDO AL LÍMITE — QWEN3.5 35B EN AMD RX 580",
+    "desc": "Registros completos de producción y benchmarks de un modelo de 34.66B de parámetros en Vulkan híbrido."
+  },
+  "proving_hypothesis_35b": {
+    "title": "34. PROBANDO LA HIPÓTESIS — CURL, CTX-SIZE 8192 Y PRIMERA RESPUESTA COMPLETA",
+    "desc": "Pruebas físicas concluyentes que validan el relleno de contexto, timeouts de cliente y Q4_K_M vs Q6_K."
   }
 };
 
@@ -529,16 +553,28 @@ const RU_SECTION_HEADERS: Record<string, { title: string; desc: string }> = {
     "desc": "Историческая веха: как открытый стек Vulkan обошел ограничения производителей и спас кремний."
   },
   "audio_rvc": {
-    "title": "31. LOCAL VOICE CONVERSION — APPLIO RVC ON AMD RX 580",
+    "title": "30. LOCAL VOICE CONVERSION — APPLIO RVC ON AMD RX 580",
     "desc": "Quickstart guides and VRAM panic mitigations for training and inference."
   },
   "audio_whisper": {
-    "title": "32. ЛОКАЛЬНОЕ РАСПОЗНАВАНИЕ РЕЧИ — WHISPER.CPP НА AMD RX 580",
+    "title": "31. ЛОКАЛЬНОЕ РАСПОЗНАВАНИЕ РЕЧИ — WHISPER.CPP НА AMD RX 580",
     "desc": "Распознавание речи/видео с аппаратным ускорением Vulkan на GPU AMD в Windows."
   },
+  "audio_srt_ptbr": {
+    "title": "32. ПОЛНЫЙ КОНВЕЙЕР ПЕРЕВОДА НА POR-BR НА RX 580",
+    "desc": "Полный конвейer перевода видео (.mp4) в субтитры (.srt) на бразильском португальском с использованием Vulkan."
+  },
   "linux_nativo": {
-    "title": "33. ЧИСТЫЙ LINUX — Ubuntu 26.04 LTS + RX 580 + Vulkan",
+    "title": "40. ЧИСТЫЙ LINUX — Ubuntu 26.04 LTS + RX 580 + Vulkan",
     "desc": "AIVisionsLab — Документирование полноценного производственного Linux-стека"
+  },
+  "limit_qwen_35b": {
+    "title": "33. НА ПРЕДЕЛЕ ВОЗМОЖНОСТЕЙ — QWEN3.5 35B НА AMD RX 580",
+    "desc": "Полные производственные журналы и результаты тестов модели на 34.66 млрд параметров в гибридном режиме Vulkan."
+  },
+  "proving_hypothesis_35b": {
+    "title": "34. ПРОВЕРКА ГИПОТЕЗЫ — CURL, CTX-SIZE 8192 И ПЕРВЫЙ ПОЛНЫЙ ОТВЕТ",
+    "desc": "Успешные физические испытания, подтверждающие влияние контекста, тайм-аутов и сравнение Q4_K_M и Q6_K."
   }
 };
 
@@ -688,16 +724,28 @@ const ZH_SECTION_HEADERS: Record<string, { title: string; desc: string }> = {
     "desc": "以详实的物理时间线记录全球开源研究人员突破厂商技术壁垒、使老旧 Polaris 级显卡焕发全新运算光芒的联合演进道路。"
   },
   "audio_rvc": {
-    "title": "31. LOCAL VOICE CONVERSION — APPLIO RVC ON AMD RX 580",
+    "title": "30. LOCAL VOICE CONVERSION — APPLIO RVC ON AMD RX 580",
     "desc": "Quickstart guides and VRAM panic mitigations for training and inference."
   },
   "audio_whisper": {
-    "title": "32. 本地语音识别转文字 — AMD RX 580 运行 WHISPER.CPP",
+    "title": "31. 本地语音识别转文字 — AMD RX 580 运行 WHISPER.CPP",
     "desc": "在 Windows AMD 平台上通过 Vulkan GPU 硬件加速实现高性能温斯普 (Whisper) 语音/视频转文字服务。"
   },
+  "audio_srt_ptbr": {
+    "title": "32. 基于 RX 580 的完整音视频转码及翻译（英转葡）工作流",
+    "desc": "基于 Vulkan 的离线端到端工作流：零成本将英文 .mp4 视频转译并生成巴西葡萄牙语 .srt 字幕文件。"
+  },
   "linux_nativo": {
-    "title": "33. 纯净物理 Linux 运行环境 — UBUNTU 26.04 LTS + RX 580 + VULKAN",
+    "title": "40. 纯净物理 Linux 运行环境 — UBUNTU 26.04 LTS + RX 580 + VULKAN",
     "desc": "AIVisionsLab 本地 Linux 工业化部署完整技术栈文档"
+  },
+  "limit_qwen_35b": {
+    "title": "33. 极限性能测试 — AMD RX 580 运行 QWEN3.5 35B 大模型",
+    "desc": "通过 Vulkan 混合推理技术在 8GB 显卡及旧服务器上运行 34.66B 参数大模型的完整基准测试与系统日志。"
+  },
+  "proving_hypothesis_35b": {
+    "title": "34. 验证假说 — CURL, CTX-SIZE 8192 与首次完整输出测试",
+    "desc": "通过物理实验成功验证上下文容量、客户端超时以及 Q4_K_M vs Q6_K 在老款核心上的表现差异。"
   }
 };
 
@@ -760,7 +808,7 @@ export const LOCALES: Record<string, LanguagePack> = {
       note: '"Muitas limitações atribuídas ao hardware de herança decorrem da falta de software otimizado."\n"Os módulos de hardware legado mantêm capacidade operacional através de backends abertos (Vulkan)."',
       tech_label: "TECNOLOGIA",
       authors_label: "AUTORES / ASSISTENTES",
-      copyright: "© 2026 PROJETO DE REUSO GLOBAL / AMD POLARIS RX 580 + INTEL XEON E5-2690 v3",
+      copyright: "© 2026 AIVisionsLab. Todos os direitos reservados. / PROJETO DE REUSO GLOBAL (RX 580 + XEON v3)",
       version_tag: "VULKAN_DEPLOY_V3.0_COMPLETO"
     },
     sections: SECTION_CONTENT["pt-BR"] as { [key: string]: SectionContent }
@@ -823,7 +871,7 @@ export const LOCALES: Record<string, LanguagePack> = {
       note: '"Many limitations attributed to legacy hardware stem from the absence of optimized software."\n"Legacy hardware modules maintain operational limits through open backends (Vulkan)."',
       tech_label: "TECHNOLOGY",
       authors_label: "AUTHORS / ASSISTANTS",
-      copyright: "© 2026 GLOBAL REUSE PROJECT / AMD POLARIS RX 580 + INTEL XEON E5-2690 v3",
+      copyright: "© 2026 AIVisionsLab. All rights reserved. / GLOBAL REUSE PROJECT (RX 580 + XEON v3)",
       version_tag: "VULKAN_DEPLOY_V3.0_COMPLETO"
     },
     sections: Object.keys(SECTION_CONTENT["pt-BR"]).reduce((acc, key) => {
@@ -893,7 +941,7 @@ export const LOCALES: Record<string, LanguagePack> = {
       note: '"El problema nunca fue la tarjeta. Clama por optimizaciones."\n"El hardware se transforma."',
       tech_label: "TECNOLOGÍA",
       authors_label: "AUTORES / ASISTENTES",
-      copyright: "© 2026 PROYECTO DE REUTILIZACIÓN GLOBAL / AMD POLARIS RX 580 + INTEL XEON E5-2690 v3",
+      copyright: "© 2026 AIVisionsLab. Reservados todos los derechos. / PROYECTO DE REUTILIZACIÓN GLOBAL",
       version_tag: "VULKAN_DEPLOY_V3.0_COMPLETO"
     },
     sections: Object.keys(SECTION_CONTENT["pt-BR"]).reduce((acc, key) => {
@@ -963,7 +1011,7 @@ export const LOCALES: Record<string, LanguagePack> = {
       note: '"Проблема была не в карте. Она требует оптимизации."\n"Железо трансформируется."',
       tech_label: "ТЕХНОЛОГИЯ",
       authors_label: "АВТОРЫ / ПОМОЩНИКИ",
-      copyright: "© 2026 ГЛОБАЛЬНЫЙ ПРОЕКТ РЕУТИЛИЗАЦИИ / AMD POLARIS RX 580 + INTEL XEON E5-2690 v3",
+      copyright: "© 2026 AIVisionsLab. Все права защищены. / ГЛОБАЛЬНЫЙ ПРОЕКТ РЕУТИЛИЗАЦИИ",
       version_tag: "VULKAN_DEPLOY_V3.0_COMPLETO"
     },
     sections: Object.keys(SECTION_CONTENT["pt-BR"]).reduce((acc, key) => {
@@ -1033,7 +1081,7 @@ export const LOCALES: Record<string, LanguagePack> = {
       note: '“显卡从未有错，它渴望被发掘极限。”\n“硬件复兴，新生而战。”',
       tech_label: "构建技术",
       authors_label: "开源作者与伙伴列表",
-      copyright: "© 2026 全球资源保护及重用框架 / AMD Polaris RX 580 + Intel Xeon E5-2690 v3",
+      copyright: "© 2026 AIVisionsLab. 版权所有，保留所有权利。/ 全球资源保护及重用框架",
       version_tag: "VULKAN_DEPLOY_V3.0_COMPLETO"
     },
     sections: Object.keys(SECTION_CONTENT["pt-BR"]).reduce((acc, key) => {

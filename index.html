@@ -3,7 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://api.qrserver.com https://setup-ia-local-rx580-vulkan.web.app; connect-src 'self' ws: wss: https:;" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://api.qrserver.com https://setup-ia-local-rx580-vulkan.web.app https://www.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://c.bing.com; frame-src 'self' https://www.googletagmanager.com; connect-src 'self' ws: wss: https:;" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PLACEHOLDER');</script>
+    <!-- End Google Tag Manager -->
 
     <!-- ============================================================ -->
     <!-- TITLE — Keyword-rich, under 60 chars for SERP display        -->
@@ -15,6 +23,17 @@
     <!-- ============================================================ -->
     <meta name="description" content="Guia definitivo para rodar IA local em GPUs AMD de 2017 (RX 580 8GB). Passo a passo para Ollama, Stable Diffusion, ComfyUI via Vulkan e DirectML no Windows — sem pagar nuvem, sem GPU nova." />
     <meta name="google-site-verification" content="googled2e46d4bf72466a6" />
+    <meta name="google-site-verification" content="awMocquaZM6BebAp0BOhimV-p_DkfpdgRvIZbScdzjc" />
+    <meta name="google-site-verification" content="jrXQOH28O2Px1DgpWYw4Tq2iJPp7oueaXZ3LOovhAf0" />
+
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNS7LRZQ4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YNS7LRZQ4S');
+    </script>
     <meta name="keywords" content="RX 580 IA local, AMD RX 580 Ollama, Vulkan llama.cpp, ROCm RX 580 Windows, ComfyUI RX 580, stable diffusion RX 580, IA offline gratis, hardware legado IA, GPU antiga inteligencia artificial, GGUF quantização, DirectML Windows, AIVisionsLab, inteligencia artificial baixo custo, rx580 machine learning" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="author" content="AIVisionsLab" />
@@ -227,7 +246,7 @@
           "name": "Quais modelos de IA funcionam na RX 580 8GB?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Modelos LLM: Llama-3 8B Q4, Mistral 7B Q4, Qwen2 7B Q4, Phi-3 Mini Q4. Modelos de imagem: Stable Diffusion 1.5, SDXL parcial, Flux.1 Schnell em modo híbrido CPU+GPU."
+            "text": "Modelos LLM de até 7B ou 8B parâmetros (como Mistral, Llama 3 ou Qwen) rodam bem com quantização Q4_K_M. Para Stable Diffusion, a placa é eficiente em modelos v1.5 e consegue rodar modelos maiores como FLUX com otimizações de memória (tiling) e offloading para a RAM do sistema."
           }
         },
         {
@@ -336,8 +355,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Microsoft Clarity Tracking -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "x7qu1icwwv");
+    </script>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLACEHOLDER"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- SCRIPT FOR COMPATIBILITY & PERSISTENT SEO PRE-LOADS -->
     <div id="root">
       <!-- ========================================================================= -->

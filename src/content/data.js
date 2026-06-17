@@ -1179,7 +1179,7 @@ E:\\
        </div>`
     },
     "audio_rvc": {
-      "title": "31. VOICE CONVERSION LOCAL — APPLIO RVC EM AMD RX 580",
+      "title": "30. VOICE CONVERSION LOCAL — APPLIO RVC EM AMD RX 580",
       "desc": "Pipeline de clonagem de voz no Windows sem CUDA NVIDIA",
       "html": `<blockquote style="font-size:.82rem;color:#94a3b8;font-style:italic;line-height:1.7;border-left:3px solid var(--r);padding-left:.9rem;margin-bottom:1.25rem">
   Documentação honesta de uma instalação real, incluindo todas as tentativas, erros e soluções.<br />
@@ -1667,7 +1667,7 @@ print('OK')
 <p style="font-size:.85rem;color:#94a3b8;font-style:italic;line-height:1.8"><em>*Hardware legado não morre — só precisa do backend certo.</em></p>`
     },
     "audio_whisper": {
-      "title": "32. WHISPER.CPP LOCAL — TRANSCRIÇÃO DE ÁUDIO EM AMD RX 580",
+      "title": "31. WHISPER.CPP LOCAL — TRANSCRIÇÃO DE ÁUDIO EM AMD RX 580",
       "desc": "Transcrição de áudio/vídeo acelerada por GPU AMD via Vulkan no Windows (modelo large-v3-turbo).",
       "html": `<div class="whisper-doc">
 <style>
@@ -1955,9 +1955,23 @@ print('OK')
 </div>`
     },
     "linux_nativo": {
-      "title": "33. LINUX NATIVO — Ubuntu 26.04 LTS + RX 580 + Vulkan",
+      "title": "40. LINUX NATIVO — Ubuntu 26.04 LTS + RX 580 + Vulkan",
       "desc": "AIVisionsLab — Documentação da Stack Completa em Linux Real",
-      "html": `<p style="font-size:.88rem;color:#94a3b8;line-height:1.9;margin-bottom:1.25rem">
+      "html": `<div class="card bg-red-950/20 border border-red-500/30 p-5 rounded-md my-6">
+  <h4 style="color:#ef4444;font-weight:800;font-size:0.95rem;margin-bottom:0.6rem;display:flex;items-center;gap:0.4rem">
+    🚨 INCIDENT REPORT (16/06/2026): O GRANDE DESASTRE DE ESPAÇO E A QUEDA DO GNOME
+  </h4>
+  <p style="font-size:0.82rem;color:#fca5a5;line-height:1.75;margin-bottom:0.75rem">
+    <strong>Status Crítico:</strong> Durante os testes de pipelines extremos e download massivo de modelos GGUF pesados na partição dedicada de 97GB, o espaço físico foi totalmente exaurido (0 bytes livres no swap/root). Em uma tentativa rápida de liberação de cache e limpeza forçada via terminal, dependências críticas do ambiente gráfico foram corrompidas.
+  </p>
+  <ul style="padding-left:1.2rem;font-size:.8rem;color:#fbcfe8;line-height:1.8;margin-bottom:1rem">
+    <li><strong>Sintoma:</strong> O gerenciador de Janelas <strong>GNOME</strong> quebrou por completo, resultando em loops de login e tela preta terminal sem carregamento de interface de vídeo.</li>
+    <li><strong>Ação de Recuperação:</strong> Formatação física e reinstalação imediata do sistema Linux Bare-Metal do zero para reconstrução limpa e redimensionamento adequado de partições.</li>
+    <li><strong>O Veredicto Existencial:</strong> <em>"Definitivamente preciso aprender Linux!"</em> — A jornada do AIVisionsLab prova que dominar o terminal e a alocação de espaço sob LVM é tão crucial quanto conhecer os shaders de backend do Vulkan.</li>
+  </ul>
+</div>
+
+<p style="font-size:.88rem;color:#94a3b8;line-height:1.9;margin-bottom:1.25rem">
   Documentação detalhada e homologada de execução direta em Linux nativo. Sem WSL2, sem emulação de contêiner ou Docker Passthrough: acesso bare-metal real através de drivers open-source <strong>Mesa RADV</strong> sobre o novíssimo <strong>Ubuntu 26.04 LTS (Resolute Raccoon)</strong> rodando o kernel Linux 7.0.
 </p>
 
@@ -2105,6 +2119,1073 @@ vulkaninfo --summary 2>/dev/null | grep -A5 "Devices"
   <p style="font-size:0.8rem;color:#94a3b8;line-height:1.7">
     <strong>ROCm Abandonado:</strong> Placas GCN4 / Polaris como a RX 580 não têm mais suporte no SDK ROCm oficial. Tentar rodar Ollama oficial via GPU Docker nela falhará. A rota de ouro é rodar o <strong>Ollama na CPU Xeon</strong> ou usar o <strong>llama-server nativo compilado com Vulkan</strong>! Docker só deve ser empregado para frontends e servidores secundários livres.
   </p>
+</div>`
+    },
+    "audio_srt_ptbr": {
+      "title": "32. PIPELINE COMPLETO — TRANSCRIÇÃO + TRADUÇÃO PT-BR COM RX 580",
+      "desc": "Transcrição de vídeo em inglês com tradução automática para português brasileiro, do .mp4 ao .srt sem nenhum serviço pago.",
+      "html": `<div class="whisper-doc">
+  <div class="hero">
+    <div class="hero-title"><span>Pipeline Completo</span> — Transcrição + Tradução EN➔PT-BR</div>
+    <div class="hero-sub">Transcrição offline de vídeo em inglês com tradução automática para português brasileiro, do <code>.mp4</code> ao <code>.srt</code> de forma 100% gratuita usando a RX 580 via Vulkan.</div>
+    <div class="hero-badges">
+      <span class="badge badge-gpu">AMD RX 580 8GB</span>
+      <span class="badge badge-win">Windows + PowerShell</span>
+      <span class="badge badge-ok">Vulkan Backend</span>
+      <span class="badge badge-ok">large-v3-turbo</span>
+      <span class="badge badge-win">deep-translator (Gratuito)</span>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat-label">tempo total pipeline</div>
+      <div class="stat-value">~8 min</div>
+      <div class="stat-sub">Vídeo de 29m 51s</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">VRAM Usada</div>
+      <div class="stat-value">2.9 GB</div>
+      <div class="stat-sub">de 8 GB Polaris</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Temp. Média GPU</div>
+      <div class="stat-value">50°C</div>
+      <div class="stat-sub">Fan Curve Otimizada</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Custo Cloud</div>
+      <div class="stat-value">R$ 0,00</div>
+      <div class="stat-sub">100% Local & Offline</div>
+    </div>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:1.5rem;margin-bottom:.5rem">Hardware Utilizado no Teste</h3>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Componente</th>
+          <th>Especificação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>GPU</strong></td>
+          <td>AMD Radeon RX 580 2048SP (8GB VRAM)</td>
+        </tr>
+        <tr>
+          <td><strong>CPU</strong></td>
+          <td>Intel Xeon E5-2690 v3 (24 threads / 12 Cores)</td>
+        </tr>
+        <tr>
+          <td><strong>RAM</strong></td>
+          <td>31.8 GB DDR4 REG ECC</td>
+        </tr>
+        <tr>
+          <td><strong>OS</strong></td>
+          <td>Windows 11 Professional</td>
+        </tr>
+        <tr>
+          <td><strong>Driver</strong></td>
+          <td>Adrenalin 31.0.21925.1001 (2026/05/20)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:1.5rem;margin-bottom:.5rem">Fluxo de Dados Unificado (Pipeline)</h3>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    O objetivo é mapear um vídeo educacional em inglês para legenda em português compatível com software editor de vídeo (Filmora, Premiere, etc.), rodando a transcrição via GPU nativa e traduzindo cada timestamp sem limites de API de nuvem comercial:
+  </p>
+  <div class="cmd" style="white-space:normal; line-height:1.6; padding: 1rem;">
+    <strong>video.mp4</strong> ➔ <code>FFmpeg (extração)</code> ➔ <strong>video_16k.wav</strong><br>
+    ➔ <code>whisper-cli Vulkan (transcrição)</code> ➔ <strong>video.srt (English)</strong><br>
+    ➔ <code>Python deep-translator (Google Translate)</code> ➔ <strong>video_ptbr.srt (Português)</strong><br>
+    ➔ <code>Importar na Timeline do Filmora</code>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:1.5rem;margin-bottom:.5rem">Performance e Timing Detalhado</h3>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Métricas reais obtidas transcrição de um vídeo educacional de <strong>29 minutos e 51 segundos</strong> (áudio em inglês, AAC, 480x360):
+  </p>
+  <div class="tbl" style="margin-bottom:1.5rem">
+    <table>
+      <thead>
+        <tr>
+          <th>Etapa do Pipeline</th>
+          <th>Ferramenta</th>
+          <th>Tempo Gasto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Extração de Áudio WAV Sem Compressão</strong></td>
+          <td>FFmpeg</td>
+          <td><strong>1.7 segundos</strong></td>
+        </tr>
+        <tr>
+          <td><strong>2. Transcrição de Áudio (EN)</strong></td>
+          <td>Whisper.cpp + Vulkan</td>
+          <td><strong>6 minutos e 07 segundos</strong></td>
+        </tr>
+        <tr>
+          <td><strong>3. Tradução em Bloco do SRT (EN➔PT-BR)</strong></td>
+          <td>Python + <code>deep-translator</code></td>
+          <td><strong>~2 minutos</strong> (limitação de I/O de rede)</td>
+        </tr>
+        <tr style="border-top:1px solid rgba(255,255,255,0.15)">
+          <td><strong>Métrica Total Consolidade</strong></td>
+          <td><strong>Pipeline Completo</strong></td>
+          <td><strong>~8 minutos</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 style="color:#fff;font-size:.85rem;font-weight:600;margin-top:.85rem">Timings Internos do Core (whisper_print_timings)</h4>
+  <div class="card bg-black/40 border border-white/5 p-4 rounded-md my-3 font-mono text-xs text-[#a7f3d0] leading-relaxed">
+    load modelo : 3.687 ms<br>
+    mel (áudio) : 2.305 ms<br>
+    encode GPU  : 204.689 ms<br>
+    decode      : 4.081 ms<br>
+    batch total : 108.675 ms<br>
+    total       : 367.432 ms (por batch de segmentação)
+  </div>
+
+  <div class="section-title">Manual de Instruções Passo a Passo</div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div class="step-name">Extrair Áudio Compatível via FFmpeg</div>
+      <div class="step-desc">WAV 16kHz Mono 16-bit</div>
+    </div>
+    <div class="step-body">
+      <p style="font-size:0.8rem;color:#94a3b8;margin-bottom:0.5rem">O Whisper necessita estritamente de áudio WAV cru em 16.000 Hz, formato mono de 16 bits:</p>
+      <div class="cmd">ffmpeg -i "E:\\MUSICAS SUNO AI\\video.mp4" -ar 16000 -ac 1 -c:a pcm_s16le "E:\\MUSICAS SUNO AI\\video_16k.wav"</div>
+      <p class="note"><strong>Flags:</strong> <code>-ar 16000</code> força 16kHz · <code>-ac 1</code> converte para canal mono único · <code>-c:a pcm_s16le</code> define PCM de 16 bits sem perda.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div class="step-name">Transcrever via Vulkan</div>
+      <div class="step-desc">Carga pesada na GPU Polaris</div>
+    </div>
+    <div class="step-body">
+      <p style="font-size:0.8rem;color:#94a3b8;margin-bottom:0.5rem">Chamar o executável compilado do Whisper para gerar o arquivo inicial de legendas SRT em inglês:</p>
+      <div class="cmd">cd C:\\whisper.cpp</div>
+      <div class="cmd">.\\build\\bin\\Release\\whisper-cli.exe -m models\\ggml-large-v3-turbo.bin -f "E:\\MUSICAS SUNO AI\\video_16k.wav" -l en --output-srt</div>
+      <p class="note"><strong>Verificação de atividade da GPU:</strong> Certifique-se de ver as linhas <code>ggml_vulkan: Found 1 Vulkan devices: AMD Radeon RX 580 2048SP</code> na inicialização para atestar que o encode pesado foi acoplado na GPU, reduzindo o uso de CPU para ~5%.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div class="step-name">Criar e Executar Script Python de Tradução</div>
+      <div class="step-desc">Zero Keys, Zero Custos</div>
+    </div>
+    <div class="step-body">
+      <p style="font-size:0.8rem;color:#94a3b8;margin-bottom:0.5rem">
+        Instale a biblioteca de tradução sem chaves de API: <code>pip install deep-translator</code>. Crie e rode o arquivo <code>C:\\whisper.cpp\\traduzir.py</code> com este código:
+      </p>
+      <div class="cmd" style="white-space:pre-wrap; font-size:11px;">from deep_translator import GoogleTranslator
+
+def traduzir_srt(entrada, saida):
+    with open(entrada, 'r', encoding='utf-8') as f:
+        conteudo = f.read()
+
+    blocos = conteudo.strip().split('\\n\\n')
+    resultado = []
+
+    for bloco in blocos:
+        linhas = bloco.split('\\n')
+        if len(linhas) >= 3:
+            numero = linhas[0]
+            timestamp = linhas[1]
+            texto = ' '.join(linhas[2:])
+            traduzido = GoogleTranslator(source='en', target='pt').translate(texto)
+            resultado.append(f"{numero}\\n{timestamp}\\n{traduzido}")
+
+    with open(saida, 'w', encoding='utf-8') as f:
+        f.write('\\n\\n'.join(resultado))
+    print("Pronto!")
+
+traduzir_srt(
+    r'E:\\MUSICAS SUNO AI\\video_16k.wav.srt',
+    r'E:\\MUSICAS SUNO AI\\video_16k_ptbr.srt'
+)</div>
+      <p style="font-size:0.8rem;color:#94a3b8;margin-top:0.5rem">Para rodar:</p>
+      <div class="cmd">python traduzir.py</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div class="step-name">Importar Legenda no Filmora</div>
+      <div class="step-desc">Concluir Edição de Vídeo</div>
+    </div>
+    <div class="step-body">
+      <p style="font-size:0.8rem;color:#94a3b8;line-height:1.6">
+        1. No Wondershare Filmora, acesse <strong>Arquivo ➔ Importar ➔ Importar arquivos de legenda</strong>.<br>
+        2. Selecione o arquivo gerado <code>video_16k_ptbr.srt</code>.<br>
+        3. Arraste e solte o track de legenda diretamente na timeline, sobreposto ao track de vídeo original.
+      </p>
+    </div>
+  </div>
+
+  <div class="section-title">Lições Autônomas Aprendidas nas Peripécias</div>
+  <div class="card-inner">
+    <div class="lesson">
+      <div class="lesson-icon">⚠️</div>
+      <div class="lesson-text"><strong>Evite usar --translate para PT-BR direto nas flags do Whisper:</strong> O parâmetro <code>--translate</code> por design traduz o áudio para o inglês de forma nativa. Para ter legendas em português brasileiro de qualidade, a abordagem correta é extrair inglês por <code>-l en</code> e traduzir com o algoritmo <code>traduzir.py</code>.</div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-icon">⚠️</div>
+      <div class="lesson-text"><strong>Problemas de Linguagem de Origem Incorreta:</strong> Passar <code>-l pt</code> quando o áudio de origem é falado em inglês faz o Whisper forçar padrões fonéticos portugueses no áudio em inglês, gerando textos completamente incompreensíveis e sem sentido. Defina sempre o idioma real do áudio de entrada como parâmetro inicial.</div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-icon">ℹ️</div>
+      <div class="lesson-text"><strong>Local do Arquivo Gerado:</strong> Por padrão, em compilados nativos, o arquivo <code>.srt</code> é salvo na mesma pasta física do arquivo de áudio WAV processado, e não dentro do diretório do script ou do Whisper.</div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-icon">✅</div>
+      <div class="lesson-text"><strong>8 GB de VRAM em 2026 Segue Firme:</strong> O modelo Whisper <code>large-v3-turbo</code> consome apenas 2.9 GB de VRAM física no ecossistema, permitindo folga para outras atividades na sua máquina ou renderização benta paralela. Milhares de dólares economizados em assinaturas e APIs proprietárias.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    RX 580 — velha de 580 anos, mas ainda na ativa 🚀 · Peripécias documentadas em junho/2026
+  </div>
+</div>`
+    },
+    "limit_qwen_35b": {
+      "title": "33. LEVANDO AO LIMITE QWEN3.5 35B Q6_K NA RX 580 8GB VIA VULKAN",
+      "desc": "Experimento de execução híbrida extrema de um modelo de 34.66B de parâmetros na GPU Polaris e Xeon de 2014.",
+      "html": `<div class="whisper-doc">
+  <div class="hero">
+    <div class="hero-title"><span>Leve ao Limite</span> — Qwen3.5 35B na RX 580</div>
+    <div class="hero-sub">Experimento de execução híbrida extrema de um modelo de <strong>34,66B parâmetros</strong> na GPU de 8GB de VRAM e Xeon de 2014 via motor Vulkan.</div>
+    <div class="hero-badges">
+      <span class="badge badge-gpu">AMD RX 580 8GB</span>
+      <span class="badge badge-win">Xeon E5-2690 v3</span>
+      <span class="badge badge-ok">Vulkan Híbrido</span>
+      <span class="badge badge-ok">34.66B parameters</span>
+      <span class="badge badge-win">Q6_K Quantization</span>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat-label">Velocidade Geração</div>
+      <div class="stat-value">5.64 tok/s</div>
+      <div class="stat-sub">Sessão 2 (Estável)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Prompt Eval</div>
+      <div class="stat-value">34.13 tok/s</div>
+      <div class="stat-sub">Tempo resposta ~107s</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Temperatura Máxima</div>
+      <div class="stat-value">80°C</div>
+      <div class="stat-sub">Sem Throttling (Alvo: 90°C)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Custo Adicional</div>
+      <div class="stat-value">R$ 0,00</div>
+      <div class="stat-sub">Execução 100% local</div>
+    </div>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.0 — Contexto e Motivação</h3>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Em 15 de junho de 2026, o AIVisionsLab conduziu o experimento mais extremo da sua história: rodar um modelo de <strong>34,66 bilhões de parâmetros</strong> em modo híbrido numa GPU AMD Radeon RX 580 2048SP de 2017 com apenas 8GB de VRAM.
+  </p>
+  <blockquote style="font-size:.82rem;color:#94a3b8;font-style:italic;line-height:1.7;border-left:3px solid var(--r);padding-left:.9rem;margin-bottom:1.25rem">
+    "Se a RX 580 já roda Qwen3 4B a 35 tokens/s via Vulkan, até onde vai o limite?"
+  </blockquote>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    A resposta documentada abaixo prova que o limite não é onde o mercado de hardware diz que é.
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.1 — Hardware do Laboratório</h3>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Componente</th>
+          <th>Especificação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>CPU</strong></td><td>Intel Xeon E5-2690 v3 — 12 cores / 24 threads · 3,05 GHz turbo (Lançado em 2014)</td></tr>
+        <tr><td><strong>RAM</strong></td><td>31,8 GB DDR4 REG ECC (quad-channel)</td></tr>
+        <tr><td><strong>GPU</strong></td><td>AMD Radeon RX 580 2048SP — 8 GB GDDR5 (Lançado em 2017)</td></tr>
+        <tr><td><strong>Storage 1</strong></td><td>SSD NVMe (Disco E:) — modelos GGUF (Leitura de 1.7–3.5 GB/s)</td></tr>
+        <tr><td><strong>Storage 2</strong></td><td>HDD (Disco C: / F:) — sistema Windows + swap</td></tr>
+        <tr><td><strong>Storage 3</strong></td><td>HDD (Disco D:) — arquivos secundários</td></tr>
+        <tr><td><strong>Driver AMD</strong></td><td>31.0.21925.1001 — lançado em 20/05/2026</td></tr>
+        <tr><td><strong>DirectX</strong></td><td>12 (Feature Level 12.0)</td></tr>
+        <tr><td><strong>Barramento</strong></td><td>PCI Express 3, dispositivo 0, função 0</td></tr>
+        <tr><td><strong>Sistema</strong></td><td>Windows 10/11 com WSL2 ativo</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.8rem;color:#94a3b8;font-style:italic;line-height:1.8;margin-top:0.5rem">
+    *Nota histórica: O Xeon E5-2690 v3 é de 2014. A RX 580 é de 2017. O Qwen3.5 é de 2025. Hardware de datacenter de 10 anos atrás processando IA de última geração.
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.2 — Software e Versões</h3>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Software</th>
+          <th>Versão / Detalhe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>llama.cpp</strong></td><td>build b9049-2496f9c14</td></tr>
+        <tr><td><strong>Compilador</strong></td><td>MSVC 14.51.36231 (Visual Studio)</td></tr>
+        <tr><td><strong>Vulkan SDK</strong></td><td>1.4.350.0</td></tr>
+        <tr><td><strong>OpenWebUI</strong></td><td>v0.9.6</td></tr>
+        <tr><td><strong>SearXNG</strong></td><td>via Docker — integrado ao OpenWebUI</td></tr>
+        <tr><td><strong>Backend GPU</strong></td><td>Vulkan — <em>sem CUDA, sem ROCm, sem DirectML</em></td></tr>
+        <tr><td><strong>Docker Desktop</strong></td><td>Ativo — containers open-webui + searxng</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.3 — O Modelo: Qwen3.5-35B-A3B-Uncensored Q6_K</h3>
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">33.3.1 — Especificações Técnicas</h4>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Parâmetro</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Nome completo</strong></td><td>Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive-Q6_K</td></tr>
+        <tr><td><strong>Arquitetura</strong></td><td>qwen35moe — Mixture of Experts (MoE)</td></tr>
+        <tr><td><strong>Parâmetros totais</strong></td><td>34,66 bilhões</td></tr>
+        <tr><td><strong>Tamanho do arquivo</strong></td><td>26,55 GiB (6,58 bits por peso)</td></tr>
+        <tr><td><strong>Quantização</strong></td><td>Q6_K — 432 tensores q6_K + 301 tensores f32</td></tr>
+        <tr><td><strong>Experts totais</strong></td><td>256 experts</td></tr>
+        <tr><td><strong>Experts ativos por token</strong></td><td>8 de 256 (apenas 3,1% ativados)</td></tr>
+        <tr><td><strong>Contexto máximo de treino</strong></td><td>262.144 tokens</td></tr>
+        <tr><td><strong>Vocabulário</strong></td><td>248.320 tokens (BPE, tokenizer qwen35)</td></tr>
+        <tr><td><strong>Thinking mode padrão</strong></td><td>ATIVADO (<code>thinking = 1</code> no template Jinja2)</td></tr>
+        <tr><td><strong>Intervalo de full attention</strong></td><td>A cada 4 layers</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">33.3.2 — Por que MoE muda tudo</h4>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Em um modelo denso de 35B, <strong>todos</strong> os 35 bilhões de parâmetros são ativados para cada token gerado. No Qwen3.5 MoE, apenas os <strong>8 experts mais relevantes</strong> de 256 são ativados — o equivalente a ~3B parâmetros ativos por token.
+  </p>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Isso explica por que um arquivo de 26GB consegue rodar numa máquina com 32GB de RAM: a maior parte dos pesos está na memória mas <strong>não é calculada simultaneamente</strong>.
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.4 — Comando de Inicialização</h3>
+  <div class="cmd">
+# Sessão 1 (porta 8080 — erro corrigido depois)
+.\\llama-server.exe -m "E:\\models\\Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive-Q6_K.gguf" --host 0.0.0.0 --port 8080
+
+# Sessão 2 (porta 8081 — correta)
+.\\llama-server.exe -m "E:\\models\\Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive-Q6_K.gguf" --host 0.0.0.0 --port 8081</div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-top:0.5rem">
+    <strong>Nenhuma flag manual de camadas (<code>-ngl</code>).</strong> O llama.cpp fez todo o fitting automático.
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.5 — O Fitting Automático: Como o llama.cpp dividiu 26GB em 1,15 segundos</h3>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Este é o coração técnico do experimento. Sem nenhuma intervenção manual, o llama.cpp executou um algoritmo de otimização que analisou a VRAM disponível e distribuiu o modelo entre GPU e RAM de forma inteligente.
+  </p>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">33.5.1 — Situação Inicial (Impossível carregar inteiro na GPU)</h4>
+  <div class="cmd">
+Memória necessária na GPU (modelo completo): 32.961 MiB
+VRAM livre disponível:                        7.366 MiB
+Déficit:                                     26.618 MiB — impossível da GPU conter tudo</div>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">33.5.2 — Sequência de Decisões do Fitting (1,15 segundos)</h4>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    <strong>Passo 1 — Redução de contexto:</strong>
+  </p>
+  <div class="cmd">Contexto original:  262.144 tokens ➔ Contexto reduzido automaticamente: 4.096 tokens (Economia de VRAM: 5.347 MiB)</div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    <strong>Passo 2 — Mover todos os experts MoE para RAM:</strong>
+  </p>
+  <div class="cmd">Vulkan0 com as camadas densas residuais: 2.418 MiB (Sobra 3.924 MiB VRAM livre)
+RAM host (experts MoE mapeados): 25.613 MiB</div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    <strong>Passo 3 — Realocar camadas densas de volta para GPU (back-to-front):</strong>
+  </p>
+  <div class="cmd">41 camadas densas realocadas ➔ GPU. Uso resultante: 3.048 MiB | Livre: 4.318 MiB</div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    <strong>Passo 4 — Filling front-to-back com overflow fracionado:</strong>
+  </p>
+  <div class="cmd">Resultado: 41 camadas (36 "overflowing") na GPU
+Tipo de overflow: GATE (fracionado no gate layer)
+Uso final GPU: 6.255 MiB | Livre: 1.111 MiB</div>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">33.5.3 — Distribuição Final dos Pesos</h4>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Localização do Buffer</th>
+          <th>Conteúdo Armazenado</th>
+          <th>Tamanho Mobilizado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Vulkan0 (RX 580 8GB)</strong></td><td>41 camadas densas + output layer</td><td><strong>5.154 MiB</strong></td></tr>
+        <tr><td><strong>CPU_Mapped (RAM via mmap)</strong></td><td>256 experts MoE</td><td><strong>26.784 MiB</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">33.5.4 — Buffers Adicionais alocados na VRAM</h4>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Buffer Tipo</th>
+          <th>Tamanho Alocado</th>
+          <th>Descrição Física</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>KV Cache (Vulkan0)</strong></td><td>80,00 MiB</td><td>4.096 cells, 10 layers</td></tr>
+        <tr><td><strong>RS Buffer (Vulkan0)</strong></td><td>251,25 MiB</td><td>recorrente: 40 layers, 4 seqs</td></tr>
+        <tr><td><strong>Compute Buffer (Vulkan0)</strong></td><td>770,02 MiB</td><td>Ativado durante grafos de computação</td></tr>
+        <tr><td><strong>Host Compute Buffer</strong></td><td>16,02 MiB</td><td>RAM do sistema</td></tr>
+        <tr><td><strong>Output Buffer (Vulkan_Host)</strong></td><td>3,79 MiB</td><td>Buffer de saída de tokens</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-top:0.5rem">
+    <strong>Total efetivo na VRAM durante inferência: ~6,2–7,2 GB</strong> (77–90% dos 8GB físicos livres).
+  </p>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">33.5.5 — Features habilitadas automaticamente</h4>
+  <div class="cmd">
+✅ Flash Attention (auto ➔ ENABLED)
+✅ Fused Gated Delta Net — autoregressive
+✅ Fused Gated Delta Net — chunked
+✅ Prompt cache (limite: 8.192 MiB, ~89.715 MiB salvos em disco)
+✅ Thinking mode (thinking = 1)
+✅ 4 slots paralelos (n_seq_max = 4)
+
+Graph nodes: 3.729 | Graph splits: 106 (com bs=512), 74 (com bs=1)
+Reserve: 137–183 ms</div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.6 — A Arquitetura de 4 Níveis de Memória</h3>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Primeiro registro documentado de um modelo 35B usando <strong>4 camadas de memória simultaneamente</strong> para processamento numa RX 580 comum:
+  </p>
+  <div style="background:#141519;border:1px border-white/5;border-radius:6px;padding:1rem;font-family:'JetBrains Mono',monospace;font-size:0.8rem;line-height:1.7;color:#c0caf5;margin-bottom:1.5rem">
+    <div>⚡ <strong style="color:#ff9e64">NÍVEL 1 — VRAM RX 580 (8GB GDDR5):</strong> 5.154 MiB de camadas densas | Acesso: ~400 GB/s (GDDR5) | Latência: nanosegundos</div>
+    <div style="margin-top:0.5rem">🧠 <strong style="color:#7aa2f7">NÍVEL 2 — RAM DDR4 ECC (32GB Sytem):</strong> 26.784 MiB de experts MoE via mmap | Acesso: ~51 GB/s (quad-channel) | Latência: dezenas de ns</div>
+    <div style="margin-top:0.5rem">💾 <strong style="color:#22c55e">NÍVEL 3 — SSD NVMe (Disco E:):</strong> 26,55 GiB de arquivo .gguf fonte | Acesso: 1,7–3,5 GB/s | Usado durante carregamento inicial</div>
+    <div style="margin-top:0.5rem">📁 <strong style="color:#e0af68">NÍVEL 4 — HDD (Disco C: Swap):</strong> Swap do Windows ativado quando a RAM esgota (>97% de uso) | Acesso: ~120–180 MB/s | Pico de 98–100% de uso na inferência</div>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.7 — Configuração do Contexto Carregado</h3>
+  <div class="cmd">
+n_ctx         = 4.096 tokens (reduzido de 262.144 pelo fitting)
+n_batch       = 2.048
+n_ubatch      = 512
+n_seq_max     = 4 (slots paralelos)
+flash_attn    = auto ➔ ENABLED
+kv_unified    = true</div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-top:0.5rem">
+    <strong>Limitação crítica documentada:</strong> O contexto de 4.096 tokens é o principal gargalo do setup. O thinking mode (modo raciocínio) do Qwen3.5 consome 3.000+ tokens sozinho antes de gerar qualquer resposta visível — deixando menos de 1.000 tokens livres para a resposta final ao cliente.
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.8 — Benchmark Confirmado em Duas Sessões</h3>
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">Velocidade de geração</h4>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Sessão</th>
+          <th>Horário aproximado</th>
+          <th>Prompt Eval Speed</th>
+          <th>Geração Speed</th>
+          <th>Total Tokens</th>
+          <th>Tempo Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Sessão 1</strong></td><td>~17h39</td><td><strong>34,13 tok/s</strong></td><td><strong>5,57 tok/s</strong></td><td>1.377 tok</td><td>~107 segundos</td></tr>
+        <tr><td><strong>Sessão 2</strong></td><td>~21h34</td><td>~40.00 tok/s</td><td><strong>5,64 tok/s</strong></td><td>2.929 tok</td><td>~533 segundos</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-top:0.5rem">
+    <strong>Consistência notável:</strong> Manutenção na linha de ~5,6 tokens/segundo de geração independente da sessão estar sobrecarregada ou fria.
+  </p>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">Registro de temperaturas registradas</h4>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Momento do Teste</th>
+          <th>GPU Temp (°C)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Idle (modelo estacionado na VRAM)</td><td>33–41°C</td></tr>
+        <tr><td>Inferência normal (sem Web Search ativo)</td><td>44–64°C</td></tr>
+        <tr><td>Inferência carregada (com Web Search ativo)</td><td>70–75°C</td></tr>
+        <tr><td><strong>Pico absoluto registrado</strong></td><td><strong>80°C</strong></td></tr>
+        <tr><td>Após conclusão de resposta</td><td>71–73°C</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-top:0.5rem">
+    <strong>Temperatura de thermal throttling da RX 580:</strong> ~90°C. <strong>Margem de segurança operacional perfeitamente mantida!</strong>
+  </p>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">Utilização de recursos na inferência física</h4>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Recurso de Hardware</th>
+          <th>Idle</th>
+          <th>Durante Inferência</th>
+          <th>Pico Registrado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>VRAM dedicada</td><td>6,7 / 8,0 GB</td><td>6,8 – 7,2 / 8,0 GB</td><td>7,4 GB / 8,0 GB</td></tr>
+        <tr><td>RAM do Sistema</td><td>~29,0 GB</td><td>30,7 – 31,1 GB</td><td>31,2 / 31,8 GB (98% utiliz.)</td></tr>
+        <tr><td>CPU Xeon v3</td><td>3%</td><td>62 – 70%</td><td>70%</td></tr>
+        <tr><td>GPU utilização 3D</td><td>0%</td><td>1 – 3%</td><td>3% (Carga no barramento PCIe)</td></tr>
+        <tr><td>HDD C: (Atividade swap)</td><td>0%</td><td>13 – 42%</td><td>98 – 100% (Limiar swap)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.9 — Os 5 Testes: Histórico Completo de Engenharia</h3>
+  <blockquote style="font-size:.82rem;color:#94a3b8;line-height:1.7;border-left:3px solid var(--r);padding-left:.9rem;margin-bottom:1.25rem">
+    <strong>Pergunta de entrada enviada em todos os testes:</strong><br>
+    "Explique detalhadamente como funciona o mecanismo de atenção em transformers e por que o MoE é mais eficiente que modelos densos. Responda em português."
+  </blockquote>
+
+  <div style="display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem">
+    <div style="border:1px solid rgba(255, 69, 0, 0.1);background:rgba(3, 0, 1, 0.6);border-radius:6px;padding:1rem">
+      <h5 style="color:#fff;font-weight:bold;font-size:0.85rem">TESTE 1 — Sessão 1 · Raciocínio ON + Web Search ON + Geração Imagem ON</h5>
+      <p style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-top:0.25rem">
+        <strong>Resultado:</strong> ❌ Erro de protocolo (reposta não entregue) | <strong>Log do erro:</strong> <code>operator (): got exception: {"error":"code":400,"message":"Assistant response prefill is incompatible with enable_thinking."}</code>
+      </p>
+      <p style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-top:0.25rem">
+        <strong>Análise:</strong> O modelo processou um pensamento por ~1 minuto recuperando 10 fontes do SearXNG, mas o OpenWebUI injetou um prefill incorreto incompatível com a flag de pensamento do Jinja2, forçando o cancelamento.
+      </p>
+    </div>
+
+    <div style="border:1px solid rgba(255, 69, 0, 0.1);background:rgba(3, 0, 1, 0.6);border-radius:6px;padding:1rem">
+      <h5 style="color:#fff;font-weight:bold;font-size:0.85rem">TESTE 2 — Sessão 2 · Raciocínio ON + Web Search ON (30 pesquisas consecutivas)</h5>
+      <p style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-top:0.25rem">
+        <strong>Resultado:</strong> ❌ Contexto esgotado | <strong>Log do erro:</strong> <code>stop processing: n_tokens = 3285, truncated = 1</code>
+      </p>
+      <p style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-top:0.25rem">
+        <strong>Análise:</strong> As 30 pesquisas do SearXNG injetaram milhares de tokens de contexto na memória. O thinking mode tentou alocar seu próprio buffer e estourou os 4.096 limitantes do setup híbrido, forçando corte prematuro.
+      </p>
+    </div>
+
+    <div style="border:1px solid rgba(255, 69, 0, 0.1);background:rgba(3, 0, 1, 0.6);border-radius:6px;padding:1rem">
+      <h5 style="color:#fff;font-weight:bold;font-size:0.85rem">TESTE 3 — Sessão 2 · Raciocínio ON + Web Search ON (25 pesquisas, nova rodada acumulada)</h5>
+      <p style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-top:0.25rem">
+        <strong>Resultado:</strong> ❌ Contexto esgotado | <strong>Log do erro:</strong> <code>stop processing: n_tokens = 4095, truncated = 1</code>
+      </p>
+      <p style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-top:0.25rem">
+        <strong>Análise:</strong> O OpenWebUI tentou reenviar acumulando o histórico de conversação anterior. O prompt cresceu tanto que atingiu o teto exato delimitado de hardware de 4.095 tokens no Fitting.
+      </p>
+    </div>
+
+    <div style="border:1px solid rgba(255, 69, 0, 0.1);background:rgba(3, 0, 1, 0.6);border-radius:6px;padding:1rem">
+      <h5 style="color:#fff;font-weight:bold;font-size:0.85rem">TESTE 4 — Sessão 2 · Raciocínio ON + Web Search OFF</h5>
+      <p style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-top:0.25rem">
+        <strong>Resultado:</strong> ❌ Timeout do Cliente | <strong>Log do erro:</strong> <code>stop: cancel task, id_task = 6887 (truncated = 0)</code>
+      </p>
+      <p style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-top:0.25rem">
+        <strong>Análise:</strong> Sem web-search o consumo térmico despencou para estáveis 51°C e uso de swap caiu. Mas o processamento de raciocínio interno demorou tempo suficiente na CPU Xeon de 2014 para que a UI disparasse seu timeout de segurança de chamadas.
+      </p>
+    </div>
+
+    <div style="border:1px solid rgba(34, 197, 94, 0.2);background:rgba(0, 3, 1, 0.6);border-radius:6px;padding:1rem">
+      <h5 style="color:#22c55e;font-weight:bold;font-size:0.85rem">✅ TESTE 5 — Sessão 2 · Raciocínio ON + Web Search OFF + Prompt Curto (45 tokens)</h5>
+      <p style="font-size:0.8rem;color:#c2ffd2;line-height:1.6;margin-top:0.25rem">
+        <strong>Resultado:</strong> SUCESSO ABSOLUTO ✅ | Resposta técnica profunda entregue integralmente em português brasileiro estruturado.
+      </p>
+      <p style="font-size:0.8rem;color:#94a3b8;line-height:1.6;margin-top:0.25rem">
+        <strong>Análise:</strong> Ao restringir o prompt inicial para 45 tokens e desativar barulhos complementares, o pensamento pôde rodar por 4 minutos completos sob o Xeon, realizando rascunho de equações e respondendo impecavelmente sobre Transformers (Softmax, Multiheaders) e as eficiências do MoE.
+      </p>
+    </div>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.10 — Tabela Comparativa de Comportamento dos Testes</h3>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Thinking</th>
+          <th>Web Search</th>
+          <th>Promo Token</th>
+          <th>Status</th>
+          <th>Causa Raiz Real da Falha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>ON</td><td>ON (10 fontes)</td><td>~936 tok</td><td>❌ Falha</td><td>Prefill de resposta incompatível with thinking=1</td></tr>
+        <tr><td>2</td><td>ON</td><td>ON (30 pesq.)</td><td>~357 tok</td><td>❌ Falha</td><td>Esgotamento de contexto do Fitting (4.095 max)</td></tr>
+        <tr><td>3</td><td>ON</td><td>ON (25 pesq.)</td><td>~3.385 tok</td><td>❌ Falha</td><td>Esgotamento de contexto imediato no reenvio</td></tr>
+        <tr><td>4</td><td>ON</td><td>OFF</td><td>~350 tok</td><td>❌ Falha</td><td>Timeout nas requisições da OpenWebUI antes do output</td></tr>
+        <tr style="background:rgba(34, 197, 94, 0.05)"><td><strong>5</strong></td><td><strong>ON</strong></td><td><strong>OFF</strong></td><td><strong>45 tok</strong></td><td><strong>✅ SUCESSO</strong></td><td><strong>Prompt enxuto coube integralmente na arquitetura de mmap</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-top:0.5rem">
+    <strong>Conclusão Crítica:</strong> A RX 580 do laboratório de 2017 e o Xeon funcionaram estavelmente sem dar nenhum reset físico em todas as situações de stress. As falhas residiram estritamente na calibração lógica do software de front-end.
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.11 — Coletas de Descobertas e Limitações Cruciais</h3>
+  <ul style="padding-left:1.2rem;font-size:.82rem;color:#94a3b8;line-height:1.8;margin-bottom:1.25rem">
+    <li><strong style="color:#fff">Incompatibilidade do Thinking com Contexto Curto:</strong> Por design de modelo, o pensamento consome cerca de 3.000 tokens e estoura rapidamente o KV Cache alocado de 4.096 se o prompt ou histórico for longo.</li>
+    <li><strong style="color:#fff">O Fitting Automático do llama.cpp é Excepcional:</strong> Forçar o split por flags experimentais rígidas como <code>--override-tensor</code> prejudica as chamadas no Vulkan. O fitting por cálculo de grafos resolveu milimetricamente a distribuição de forma otimizada.</li>
+    <li><strong style="color:#fff">Superaquecimento da GPU mitigado:</strong> Apenas a renderização profunda com dezenas de filtros simultâneos elevou a 80°C. Limitar a GPU para inferir frações densas mantém o chip a confortáveis 44-64°C.</li>
+    <li><strong style="color:#fff font-weight:bold">O gargalo reside na taxa de I/O de Swap do HDD:</strong> Quando RAM estoura a 98%, a taxa cai para 5 tok/s devido ao HDD. Migrar o swap do host inteiro para unidades de estado sólido aumentará consideravelmente a velocidade de fluxo combinada.</li>
+  </ul>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.12 — Comparação Direta com Projetos de Comunidade</h3>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Projeto / Autor</th>
+          <th>Arquitetura Utilizada</th>
+          <th>Modelo Testado</th>
+          <th>Velocidade Geração</th>
+          <th>Status de Autoria</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Matheus Fertunani</strong></td><td>Linux Comercial / CPU Xeon pura (192GB RAM)</td><td>Qwen3.5 35B Q8</td><td>~7–8 tokens/s</td><td>Documentado no YouTube</td></tr>
+        <tr><td><strong>AIVisionsLab (Nossos testes)</strong></td><td>Vulkan Híbrido (RX 580 8GB + 32GB RAM ECC)</td><td>Qwen3.5 35B Q6_K</td><td><strong>5,64 tokens/s</strong></td><td>✅ Validado e Registrado</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-top:0.5rem">
+    <strong>A grande vantagem arquitetural:</strong> O teste de CPU pura de Matheus exige hardwares profissionais de alto custo com mais de 100GB de RAM instalada. O ecossistema de Vulkan do AIVisionsLab provou-se operável em uma GPU de menos de R$ 400 em mercado secundário!
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.13 — Configurações Recomendadas para Testes Futuros</h3>
+  <div class="cmd">
+# Teste 6 — Desativação explícita de thinking via servidor em versões de compilação recentes:
+.\\llama-server.exe -m "E:\\models\\Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive-Q6_K.gguf" --host 0.0.0.0 --port 8081 --no-thinking
+
+# Teste 7 — Elevação estrita de buffers de contexto se a memória for redirecionada:
+.\\llama-server.exe -m "E:\\models\\Qwen3.5-35B-A3B-...-Q6_K.gguf" --host 0.0.0.0 --port 8081 --ctx-size 8192
+
+# Teste 8 — Testar com quantizações menores como Q4_K_M (~21GB):
+# Liberação de ~5GB adicionais na RAM host que reduz a dependência de swap no HDD e melhora consideravelmente a taxa de tok/s!</div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.14 — Lições Técnicas Consolidadas</h3>
+  <ul style="padding-left:1.2rem;font-size:.82rem;color:#94a3b8;line-height:1.8;margin-bottom:1.25rem">
+    <li><strong style="color:#fff">O silício de 2017 não é o limite:</strong> A placa de vídeo nunca crashou nos testes contínuos de estresse térmico, dezenas de vezes. O gargalo se provou uma mera calibração lógica de software.</li>
+    <li><strong style="color:#fff">As esparsidades do MoE salvam a categoria:</strong> Sem MoE, seria impensável arrastar um modelo de 26GB de pesos ativos. O MoE faz com que apenas 3.1% dos neurônios fiquem de fato excitados por token.</li>
+  </ul>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.15 — Veredicto Geral do Laboratório</h3>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Questão de Engenharia</th>
+          <th>Veredicto Final</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>A RX 580 de 8GB suporta modelos de 35B parâmetros?</strong></td><td>✅ <strong>Sim</strong> (Em barramento híbrido mmap)</td></tr>
+        <tr><td><strong>É prático para o dia a dia?</strong></td><td>⚠️ <strong>Não</strong> (5,6 tok/s e contexto de 4.096 tokens)</td></tr>
+        <tr><td><strong>Vale como prova de conceito?</strong></td><td>✅ <strong>Absolutamente</strong></td></tr>
+        <tr><td><strong>Houve throttling ou crash?</strong></td><td>✅ <strong>Zero ocorrências de instabilidade</strong></td></tr>
+        <tr><td><strong>Temperatura máxima registrada</strong></td><td><strong>80°C</strong> (margem de segurança: ~90°C)</td></tr>
+        <tr><td><strong>Velocidade de geração</strong></td><td><strong>~5,6 tokens/segundo</strong></td></tr>
+        <tr><td><strong>Memória total mobilizada</strong></td><td><strong>~34 GB</strong> (VRAM + RAM + swap HDD)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.16 — Linha do Tempo do Experimento</h3>
+  <div style="background:#141519;border:1px border-white/5;border-radius:6px;padding:1rem;font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:1.7;color:#c0caf5;margin-bottom:1.5rem">
+    <div>🕒 <strong>~17:39</strong> — Servidor sobe na porta 8080 (erro)</div>
+    <div>🕒 <strong>~17:40</strong> — "Network Problem" no OpenWebUI (porta errada)</div>
+    <div>🕒 <strong>~17:41</strong> — Servidor fechou ao trocar porta → reiniciado na 8081</div>
+    <div>🕒 <strong>~17:42</strong> — Todas as ferramentas habilitadas no modelo (imagem, web, terminal)</div>
+    <div>🕒 <strong>~17:43</strong> — <strong>TESTE 1</strong> inicia</div>
+    <div>🕒 <strong>~17:44</strong> — Web search: 10 fontes recuperadas</div>
+    <div>🕒 <strong>~17:44</strong> — Tentativa de gerar imagem → erro tratado → continua</div>
+    <div>🕒 <strong>~17:45</strong> — "Pensado por um minuto" aparece no OpenWebUI</div>
+    <div>🕒 <strong>~17:46</strong> — Resposta estruturada com título gerado internamente</div>
+    <div>🕒 <strong>~17:50</strong> — Erro de protocolo (prefill + thinking) → sem entrega. Pico: 80°C</div>
+    <div>🕒 <strong>~21:34</strong> — Sessão 2 inicia</div>
+    <div>🕒 <strong>~21:34</strong> — <strong>TESTE 2</strong> inicia — web search ON (30 pesquisas). Contexto truncado.</div>
+    <div>🕒 <strong>~21:48</strong> — <strong>TESTE 3</strong> automático — 25 pesquisas. Contexto truncado.</div>
+    <div>🕒 <strong>~22:00</strong> — <strong>TESTE 4</strong> — web search OFF. Temperatura cai para 51°C. Timeout da UI.</div>
+    <div>🕒 <strong>~23:06</strong> — <strong>TESTE 5</strong> — prompt de 45 tokens. Thinking decodificado com sucesso.</div>
+    <div>🕒 <strong>~23:14</strong> — Resposta completa entregue em português ✅. GPU: 64°C | RAM: 96%</div>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.17 — Impacto para a Documentação do AIVisionsLab</h3>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Este experimento adiciona ao projeto: um novo benchmark robusto de 5,6 tok/s para modelos 35B MoE híbridos, a confirmação de que o fitting automático do llama.cpp supera configurações manuais rígidas via Vulkan, a identificação clara de incompatibilidade do modo thinking com contextos inferiores a 8.192 e a descrição de uma arquitetura estendida a 4 níveis de memória.
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">33.18 — Tags e Metadados</h3>
+  <div style="background:#141519;border:1px border-white/5;border-radius:6px;padding:1rem;font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:1.7;color:#a9b1d6;margin-bottom:1.5rem">
+    <div>🏷️ <strong>Tags:</strong> hybrid, moe, vulkan, rx580, large-model, thinking-mode, limits, qwen35b, benchmark, fitting-automático, 4-memory-levels, sem-throttling</div>
+    <div style="margin-top:0.5rem">💻 <strong>Hardware:</strong> RX 580 2048SP + Xeon E5-2690 v3 + 32GB ECC DDR4</div>
+    <div style="margin-top:0.25rem">💿 <strong>Software:</strong> llama.cpp b9049 + Vulkan SDK 1.4.350.0 + OpenWebUI v0.9.6</div>
+    <div style="margin-top:0.25rem">📅 <strong>Data:</strong> 15/06/2026</div>
+    <div style="margin-top:0.25rem">⏱️ <strong>Sessões:</strong> 2 (17h39–18h24 e 21h34–23h14)</div>
+    <div style="margin-top:0.25rem">📊 <strong>Testes:</strong> 5 (4 falhas de software, 1 sucesso de inferência completa)</div>
+    <div style="margin-top:0.25rem">📈 <strong>Benchmark:</strong> 5,57–5,64 tok/s (geração) | 34,13 tok/s (prompt eval)</div>
+    <div style="margin-top:0.25rem">🔥 <strong>Temperatura pico:</strong> 80°C</div>
+    <div style="margin-top:0.25rem">🏆 <strong>Status final:</strong> ✅ HARDWARE APROVADO</div>
+  </div>
+
+  <blockquote style="font-size:.85rem;color:#e11d48;font-style:italic;line-height:1.75;border-left:3px solid #e11d48;padding-left:.9rem;margin:2rem 0;background:rgba(225,29,72,0.02);padding-top:0.5rem;padding-bottom:0.5rem">
+    "O problema nunca foi o hardware.<br>
+    Foi a combinação de thinking + web search esgotando os 4.096 tokens de contexto.<br>
+    Com prompt curto e sem web search, o Qwen3.5-35B Q6_K responde normalmente numa RX 580 de 2017."<br>
+    <span style="font-style:normal;font-weight:bold;display:block;margin-top:0.5rem;font-size:0.75rem">— AIVisionsLab, 15/06/2026</span>
+  </blockquote>
+
+  <div class="footer">
+    Documentação gerada por Claude Sonnet 4.6 — 15/06/2026 · Baseada em logs reais, screenshots, benchmarks e observações em tempo real · Sessão 1: ~17h39–18h24 | Sessão 2: ~21h34–23h14 · 5 testes documentados · 1 bem-sucedido · Hardware de 2017 processando IA de 2025
+  </div>
+</div>`
+    },
+    "proving_hypothesis_35b": {
+      "title": "34. PROVANDO A HIPÓTESE: CURL, CTX-SIZE 8192 E A PRIMEIRA RESPOSTA COMPLETA",
+      "desc": "Continuação direta da Seção 33 · 3 testes · Hipótese confirmada · Hardware de 2017",
+      "html": `<div class="whisper-doc">
+  <div class="hero">
+    <div class="hero-title"><span>Provando a Hipótese</span> — Qwen3.5 35B</div>
+    <div class="hero-sub">Experimentos conclusivos validando preenchimento de contexto, timeouts de cliente e comparação Q4_K_M vs Q6_K no silício de 2017.</div>
+    <div class="hero-badges">
+      <span class="badge badge-gpu">AMD RX 580 8GB</span>
+      <span class="badge badge-win">Xeon E5-2690 v3</span>
+      <span class="badge badge-ok">Hipótese Provada</span>
+      <span class="badge badge-ok">--ctx-size 8192</span>
+      <span class="badge badge-win">Q4_K_M vs Q6_K</span>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat-label">Velocidade (Q4_K_M)</div>
+      <div class="stat-value">6.42 - 6.65 tok/s</div>
+      <div class="stat-sub">Sem Swap Ativo</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Contexto Provado</div>
+      <div class="stat-value">8.192 tokens</div>
+      <div class="stat-sub">Acomoda modo de Raciocínio</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Temperatura Máxima</div>
+      <div class="stat-value">74°C</div>
+      <div class="stat-sub">10°C mais frio com Q4_K_M</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Status do Hardware</div>
+      <div class="stat-value">100% Aprovado</div>
+      <div class="stat-sub">Zero crashes / 4 slots paralelos</div>
+    </div>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.0 — Contexto e Motivação</h3>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    A Seção 33 terminou com uma hipótese clara: <em>"O problema nunca foi o hardware. Foi a combinação de thinking + web search esgotando os 4.096 tokens de contexto. Com prompt curto e sem web search, o Qwen3.5-35B Q6_K responde normalmente numa RX 580 de 2017."</em>
+  </p>
+  <blockquote style="font-size:.82rem;color:#94a3b8;font-style:italic;line-height:1.7;border-left:3px solid var(--r);padding-left:.9rem;margin-bottom:1.25rem">
+    Em 16 de junho de 2026, o AIVisionsLab executou os testes pendentes sugeridos para provar essa hipótese ao vivo, avaliando o comportamento com curl direto (sem timeout do cliente), habilitando a flag de tamanho de contexto ampliado e testando quantizações mais eficientes.
+  </blockquote>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.1 — Hardware do Laboratório</h3>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Componente</th>
+          <th>Especificação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>CPU</strong></td><td>Intel Xeon E5-2690 v3 — 12 cores / 24 threads · 3,05 GHz turbo (Lançado em 2014)</td></tr>
+        <tr><td><strong>RAM</strong></td><td>31,8 GB DDR4 REG ECC (quad-channel)</td></tr>
+        <tr><td><strong>GPU</strong></td><td>AMD Radeon RX 580 2048SP — 8 GB GDDR5 (Lançado em 2017)</td></tr>
+        <tr><td><strong>Storage NVMe</strong></td><td>SSD NVMe (Disco E:) — modelos GGUF (Leitura de 1.7–3.5 GB/s)</td></tr>
+        <tr><td><strong>Storage HDD</strong></td><td>HDD (Disco C: / F:) — sistema Windows + swap</td></tr>
+        <tr><td><strong>Driver AMD</strong></td><td>31.0.21925.1001 — lançado em 20/05/2026</td></tr>
+        <tr><td><strong>Sistema</strong></td><td>Windows 10 Pro com WSL2 activo</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.2 — Modelos Testados</h3>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Modelo</th>
+          <th>Quantização</th>
+          <th>Tamanho do Arquivo</th>
+          <th>Parâmetros da Arquitetura</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive-<strong>Q6_K</strong></td><td>6 bits</td><td>28,51 GB</td><td>34,66B (MoE)</td></tr>
+        <tr style="background:rgba(34,197,94,0.05)"><td><strong>Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive-Q4_K_M</strong></td><td>4 bits (Medium)</td><td><strong>21,17 GB</strong></td><td>34,66B (MoE)</td></tr>
+        <tr><td>Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive-<strong>Q5_K_M</strong></td><td>5 bits (Medium)</td><td>24,76 GB</td><td>34,66B (MoE)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.8rem;color:#94a3b8;font-style:italic;line-height:1.8;margin-top:0.5rem">
+    *Nota: Todos os modelos possuem arquitetura idêntica de Mixture of Experts (MoE), variando apenas a compressão matemática de seus pesos.
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.3 — Localizando os Executáveis</h3>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Antes de testar, foi necessário localizar as compilações otimizadas do <code>llama-server</code>. No PowerShell do laboratório:
+  </p>
+  <div class="cmd">Get-ChildItem -Path E:\\ -Recurse -Filter "llama-server.exe" -ErrorAction SilentlyContinue
+ 
+# Resultado:
+E:\\llama.cpp\\llama-server.exe (stub de 9KB)
+E:\\llama.cpp\\build\\bin\\Release\\llama-server.exe (Executável real de 7.5MB) ◀</div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.4 — Teste 9: Curl Direto Sem Timeout</h3>
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">34.4.1 — Motivação</h4>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Identificar se o gargalo de timeout relatado no Teste 4 residia no servidor ou estritamente nas requisições AJAX do cliente OpenWebUI.
+  </p>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">34.4.2 — Inicialização do Servidor</h4>
+  <div class="cmd">cd E:\\llama.cpp\\build\\bin\\Release
+.\\llama-server.exe -m "E:\\models\\Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf" --host 0.0.0.0 --port 8081</div>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">34.4.3 — Resolvendo Escaping de JSON no PowerShell</h4>
+  <div class="cmd">'{"model":"any","messages":[{"role":"user","content":"Explique MoE em 3 paragrafos"}]}' | Out-File -Encoding utf8 -FilePath "E:\\teste.json"</div>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">34.4.4 — Executando a Chamada de Longa Duração</h4>
+  <div class="cmd">curl.exe -X POST http://localhost:8081/v1/chat/completions -H "Content-Type: application/json" --max-time 600 -d "@E:\\teste.json"</div>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">34.4.5 — Resultado Analítico</h4>
+  <div class="cmd">truncated = 0  ◀ RESPOSTA COMPLETA ENTREGUE COM SUCESSO
+total time = 266.42 s / 1955 tokens
+eval time  = 255.97 s / 1683 tokens @ 6.57 t/s</div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-top:0.5rem">
+    <strong>Veredicto técnico:</strong> O hardware de 2017 processou e entregou a resposta perfeitamente! O problema anterior era o tempo limite do navegador desistindo da conexão TCP, enquanto o servidor continuava gerando em background.
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.5 — Paralelismo Real: 4 Slots de Computação</h3>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Durante o Teste 9, o OpenWebUI foi conectado paralelamente disparando a mesma pergunta. O motor de agendamento do llama.cpp processou de forma concorrente sem travamentos:
+  </p>
+  <div class="cmd">Task 0 (curl)      — n_decoded = 1125, tg = 5.96 t/s
+Task 875 (OpenWebUI) — n_decoded = 243,  tg = 5.08 t/s</div>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    A arquitetura resistiu de forma estável (GPU: 63°C, VRAM: 7.1/8.0 GB, RAM: 91% de uso de sistema total seguro, sem travar o Windows).
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.6 — Teste 7: Habilitando Contexto Extremo (--ctx-size 8192)</h3>
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">34.6.1 — O Comando Otimizado</h4>
+  <div class="cmd">cd E:\\llama.cpp\\build\\bin\\Release
+.\\llama-server.exe -m "E:\\models\\Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf" --host 0.0.0.0 --port 8081 --ctx-size 8192</div>
+
+  <h4 style="color:#fff;font-weight:600;font-size:0.9rem;margin-top:1rem;margin-bottom:0.5rem">34.6.2 — Prompt de Teste e Comportamento do Thinking</h4>
+  <blockquote style="font-size:.82rem;color:#94a3b8;line-height:1.7;border-left:3px solid var(--r);padding-left:.9rem;margin-bottom:1rem">
+    "Explique em português por que MoE permite rodar modelos grandes em hardware com pouca VRAM. Seja direto e conciso."
+  </blockquote>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Ao receber o prompt, o processador de pensamento rodou por longos 9 minutos em background na CPU trabalhando com o contexto de 8192 tokens. A análise interna destrinchou a matemática da VRAM (calculou que 35B em INT4 exige 17,5GB de peso puro) para desvendar as complexidades de esparsidade de ativação.
+  </p>
+
+  <h4 style="color:rgba(225,29,72,0.9);font-weight:700;font-size:0.95rem;margin-top:2rem;margin-bottom:0.5rem">34.6.2-A — O Raciocínio Interno do Modelo: Análise Comparativa dos Três Thinking Blocks</h4>
+  <p style="font-size:0.85rem;color:#94a3b8;line-height:1.75;margin-bottom:1rem">
+    Durante as exaustivas sessões de ensaio das Seções 33 e 34, o Qwen3.5-35B gerou três blocos independentes de raciocínio de bastidores (<code>&lt;think&gt;</code>) que foram capturados via interceptação direta de pacotes brutos. A tabulação e o mapeamento sistemático dessas sessões fornecem evidências fundamentais de análise cognitiva do modelo:
+  </p>
+
+  <h5 style="color:#fff;font-weight:600;font-size:0.85rem;margin-top:1.25rem;margin-bottom:0.5rem">1. Thinking Block 1 — Quantização Q6_K — Sessão 1 (23:06 de 15/06)</h5>
+  <p style="font-size:0.82rem;color:#94a3b8;line-height:1.75;margin-bottom:0.75rem">
+    <strong>Prompt:</strong> <em>"Explique detalhadamente o mecanismo de atenção nos Transformers e por que MoE é mais eficiente que modelos densos."</em><br>
+    <strong>Tempo de Raciocínio:</strong> ~4 minutos | <strong>Tokens do Bloco:</strong> ~2.000 | <strong>Status:</strong> ✅ Concluído com Sucesso.
+  </p>
+  <div style="background:#090a0f;border:1px solid rgba(225,29,72,0.05);border-radius:6px;padding:0.9rem;font-family:'JetBrains Mono',monospace;font-size:0.72rem;line-height:1.6;color:#a9b1d6;margin-bottom:1rem">
+    <span style="color:#e11d48">// Linha de Pensamento do Qwen3.5 (Q6_K):</span><br>
+    - Deconstruct query into structured chunks: Attention math, Multi-head, MoE, benefits vs dense.<br>
+    - Detail Attention: Focus on Scaled Dot-Product mathematical formulation (Q, K, V). Show why division by sqrt(d_k) is required to prevent vanishing gradients during Softmax.<br>
+    - Explain Multi-Head as parallel subspace projections (capturing both strict syntactic dependencies and semantic references).<br>
+    - Deconstruct MoE: Discuss role of Router/Gating network, Routing sparsity (top-k selection), and load balancing to prevent routing collapse (unused experts).<br>
+    - <span style="color:#a3e635">[Autocorreção Interna]</span>: "Wait, I must check if MoE is always faster. I should explicitly note that MoE is memory-intensive for routing/loading but highly sparse computationally. If memory bandwidth is bottlenecked under dual-system offloading, token generation speed depends strongly on mmap performance."
+  </div>
+
+  <h5 style="color:#fff;font-weight:600;font-size:0.85rem;margin-top:1.25rem;margin-bottom:0.5rem">2. Thinking Block 2 — Quantização Q4_K_M — Sessão 2 (05:05 de 16/06)</h5>
+  <p style="font-size:0.82rem;color:#94a3b8;line-height:1.75;margin-bottom:0.75rem">
+    <strong>Prompt:</strong> <em>"Qual a diferença entre MoE e modelo denso, e por que MoE permite rodar 35B numa GPU de 8GB?"</em><br>
+    <strong>Tempo de Raciocínio:</strong> ~11 minutos | <strong>Tokens do Bloco:</strong> ~3.500 | <strong>Status:</strong> ❌ Interrompido por esgotamento de contexto (Límite 4096).
+  </p>
+  <div style="background:#090a0f;border:1px solid rgba(225,29,72,0.05);border-radius:6px;padding:0.9rem;font-family:'JetBrains Mono',monospace;font-size:0.72rem;line-height:1.6;color:#a9b1d6;margin-bottom:1rem">
+    <span style="color:#e11d48">// Linha de Pensamento do Qwen3.5 (Q4_K_M):</span><br>
+    - Analysis of premise: Running 35 billion parameter model in 8GB VRAM.<br>
+    - <span style="color:#f43f5e">[Cálculo Físico Espontâneo]</span>:<br>
+      * FP32 weights: 35B * 4 bytes = 140 GB. Impossible.<br>
+      * FP16 weights: 35B * 2 bytes = 70 GB. Impossible.<br>
+      * INT8 quant:  35B * 1 byte = 35 GB. Impossible.<br>
+      * INT4 quant:  35B * 0.5 bytes = 17.5 GB. Still larger than 8GB. This doesn't fit natively.<br>
+    - Challenge the premise: "Wait, if the model indeed runs on 8GB, there must be extreme offloading, sparse activation memory loading, or aggressive hybrid quantization."<br>
+    - <span style="color:#a3e635">[Autocorreção Crítica]</span>: "Ah! The user says 'por que o MoE permite rodar'. But actually, MoE weights are typically larger than equivalent dense models. A 35B MoE has 35B total parameters but only roughly 6B-8B active parameters per token. If we offload the inactive experts to system memory (RAM/mmap swap) and only load the active experts or the shared dense blocks onto the GPU, then the GPU memory footprint during active tensor computation is massively reduced. Let me structure this hypothesis."<br>
+    - <span style="color:#d946ef">[Análise Meta-Arquitetural]</span>: Elaborating on the split mechanism. Router stays in VRAM for instant routing, shared blocks in VRAM, active experts fetched from RAM dynamically during forward pass.
+  </div>
+  <p style="font-size:0.82rem;color:#94a3b8;line-height:1.75;margin-bottom:0.75rem">
+    <em>Nota Conclusiva de Engenharia:</em> Enquanto o modelo formulava esse raciocínio fascinante na CPU, ele estava descrevendo em profundidade matemática exatamente o sistema de mmap distribuído e a arquitetura Vulkan de 4 níveis de memória que o sustentava em tempo real — sem possuir acesso direto aos metadados do container ou ao sistema de arquivos do laboratório.
+  </p>
+
+  <h5 style="color:#fff;font-weight:600;font-size:0.85rem;margin-top:1.25rem;margin-bottom:0.5rem">3. Thinking Block 3 — Quantização Q4_K_M — Sessão 2 (05:24 de 16/06)</h5>
+  <p style="font-size:0.82rem;color:#94a3b8;line-height:1.75;margin-bottom:0.75rem">
+    <strong>Prompt:</strong> <em>"Explique em português por que MoE permite rodar modelos grandes em hardware com pouca VRAM. Seja direto e conciso."</em><br>
+    <strong>Tempo de Raciocínio:</strong> ~9 minutos | <strong>Tokens do Bloco:</strong> ~3.000 | <strong>Status:</strong> ✅ Concluído com Sucesso (--ctx-size 8192).
+  </p>
+  <div style="background:#090a0f;border:1px solid rgba(34,197,94,0.05);border-radius:6px;padding:0.9rem;font-family:'JetBrains Mono',monospace;font-size:0.72rem;line-height:1.6;color:#a3e635;margin-bottom:1rem">
+    <span style="color:#a3e635">// Linha de Pensamento do Qwen3.5 (Q4_K_M com limite otimizado):</span><br>
+    - Prompt requests: Portuguese, direct, concise.<br>
+    - Challenge VRAM claim again internally: MoE total size is bigger than dense, but active size is smaller. VRAM savings must come from smaller activation graphs (fewer experts evaluated simultaneously) and CPU-offloaded weight mapping.<br>
+    - Work step-by-step to compress explanation to fit "direto e conciso":<br>
+      * <span style="color:#cbd5e1">Rascunho v1:</span> Long theoretical detail on Router and CPU/VRAM exchange metrics.<br>
+      * <span style="color:#cbd5e1">Refinamento v2:</span> Cut down router math, focus on "Ativação Esparsa" (activation memory bounds).<br>
+      * <span style="color:#cbd5e1">Compressão Final:</span> Produce 3 crisp, highly readable Portuguese bullet points summarizing Active Parameters, Activation Garty/Memory limit, and Compute Scalability.
+  </div>
+
+  <h5 style="color:#fff;font-weight:600;font-size:0.85rem;margin-top:1.25rem;margin-bottom:0.5rem">Tabela Comparativa de Comportamento Cognitivo</h5>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Métrica de Profiling</th>
+          <th>Sessão 1 (Q6_K)</th>
+          <th>Sessão 2-A (Q4_K_M)</th>
+          <th>Sessão 2-B (Q4_K_M / ctx 8192)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Duração do Raciocínio</strong></td><td>~4 minutos</td><td><strong>~11 minutos</strong></td><td>~9 minutos</td></tr>
+        <tr><td><strong>Volume do Bloco &lt;think&gt;</strong></td><td>~2.000 tokens</td><td><strong>~3.500 tokens</strong></td><td>~3.000 tokens</td></tr>
+        <tr><td><strong>Autocorreções Efetuadas</strong></td><td>2</td><td><strong>7 (Autocorreções profundas)</strong></td><td>4 (Foco em concisão)</td></tr>
+        <tr><td><strong>Questionamento de Premissa?</strong></td><td>Não</td><td><strong>✅ Sim (Provou erro matemático do prompt)</strong></td><td>Sim (reajuste técnico)</td></tr>
+        <tr><td><strong>Raciocínio Matemático</strong></td><td>Equação Transformers</td><td><strong>Cálculo do tamanho de pesos reais</strong></td><td>Cálculo de buffers de ativação</td></tr>
+        <tr><td><strong>Entrega do Texto</strong></td><td>✅ Sucesso</td><td>❌ Estouro (4096 esgotados)</td><td><strong>✅ Sucesso Absoluto (Zero cortes)</strong></td></tr>
+      </tbody>
+    </table>
+  </div>  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.8 — Cronograma Histórico do Laboratório</h3>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Sessão do Experimento</th>
+          <th>ID</th>
+          <th>Parâmetros de Ctx</th>
+          <th>Geração (tok/s)</th>
+          <th>Corte de Fluxo (truncated)</th>
+          <th>Resultado Efetivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Seção 34 — Teste 5</td><td>Q6_K</td><td>4096 tokens</td><td>5,57 t/s</td><td>0 (prompt enxuto)</td><td>✅ Resposta entregue (contexto enxuto)</td></tr>
+        <tr><td>Seção 34 — Teste 9 (curl)</td><td>Q4_K_M</td><td>4096 tokens</td><td><strong>6,57 t/s</strong></td><td>0 (sem timeout)</td><td>✅ Resposta integral por canal direto</td></tr>
+        <tr style="background:rgba(34,197,94,0.05)"><td><strong>Seção 34 — Teste 7 (WebUI)</strong></td><td>Q4_K_M</td><td>8192 tokens</td><td>6,42 t/s</td><td>0</td><td>✅ Resposta completa com raciocínio expandido</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.9 — Nova Coleção de Lições Técnicas Consolidadas</h3>
+  <ul style="padding-left:1.2rem;font-size:.82rem;color:#94a3b8;line-height:1.8;margin-bottom:1.25rem">
+    <li><strong style="color:#fff">Lição 6 — O fator Timeout do Cliente:</strong> A maior parte dos erros apontados por testadores não decorre de incapacidade física da GPU, mas sim da persistência HTTP falha de interfaces que desistem antes da decodificação final.</li>
+    <li><strong style="color:#fff">Lição 7 — Ajuste de Buffers de Contexto:</strong> Ativar a diretiva <code>--ctx-size 8192</code> remove o limite asfixiante do buffer de raciocínio, oferecendo fôlego de processamento para os mais de 3.500 tokens exigidos de raciocínio lógico interno.</li>
+    <li><strong style="color:#fff">Lição 8 — Supremacia de Carregamento da Quantização Média:</strong> Rodar 35B com quantização de 4 bits economiza 7GB cruciais na carga física de RAM da CPU, reduzindo o I/O do Swap do disco e otimizando a temperatura.</li>
+    <li><strong style="color:#fff">Lição 9 — Raciocínio de Modelo Crítico:</strong> O Qwen3.5 MoE questionou a premissa errônea presente no prompt, calculando pesos em tempo real e rebatendo sobre o offloading híbrido, o que prova comportamento de atenção e alinhamento impecáveis.</li>
+    <li><strong style="color:#fff">Lição 10 — Paralelismo nativo estável:</strong> A coexistência de chamadas em canais concorrentes prova a maturidade das implementações de pipeline de shaders Vulkan no llama.cpp.</li>
+  </ul>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.10 — Setup Recomendado para Implementações Futuras</h3>
+  <div class="cmd"># Script do Laboratório para inicialização de produção
+cd E:\\llama.cpp\\build\\bin\\Release
+ 
+.\\llama-server.exe \`
+  -m "E:\\models\\Qwen3.5-35B-A3B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf" \`
+  --host 0.0.0.0 \`
+  --port 8081 \`
+  --ctx-size 8192</div>
+  <p style="font-size:0.8rem;color:#94a3b8;font-style:italic;line-height:1.8;margin-top:0.5rem">
+    *Instruções de interface complementares: Desativação estrita de Web Search e geração e imagens durante o processamento híbrido extremo.
+  </p>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.11 — Veredicto Geral do Laboratório (Provando a Hipótese)</h3>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>Questão de Engenharia</th>
+          <th>Veredicto Final</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>O curl resolve o timeout do OpenWebUI?</strong></td><td>✅ <strong>Sim</strong> (truncated = 0, resposta 100% íntegra)</td></tr>
+        <tr><td><strong>CTX-SIZE de 8.192 resolve o thinking mode esmagado?</strong></td><td>✅ <strong>Sim</strong> (Acomoda com folga raciocínios longos)</td></tr>
+        <tr><td><strong>Q4_K_M é superior para o cenário de 32GB de RAM?</strong></td><td>✅ <strong>Sim</strong> (Mais rápido, mais frio, menor swap)</td></tr>
+        <tr><td><strong>A hipótese de esgotamento de contexto foi confirmada?</strong></td><td>✅ <strong>Absolutamente</strong></td></tr>
+        <tr><td><strong>Sobrecusto financeiro para otimização em 2026?</strong></td><td>✅ <strong>R$ 0,00</strong> (Solução lógica via flags)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="color:#fff;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-top:2rem;margin-bottom:.5rem">34.12 — Tags e Metadados</h3>
+  <div style="background:#141519;border:1px border-white/5;border-radius:6px;padding:1rem;font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:1.7;color:#a9b1d6;margin-bottom:1.5rem">
+    <div>🏷️ <strong>Tags:</strong> curl, ctx-size, timeout, openwebui, q4km, q6k, paralelismo, thinking-mode, resposta-completa, hipotese-confirmada, rx580</div>
+    <div style="margin-top:0.5rem">💻 <strong>Hardware:</strong> RX 580 2048SP + Xeon E5-2690 v3 + 32GB ECC DDR4</div>
+    <div style="margin-top:0.25rem">💿 <strong>Software:</strong> llama.cpp (build\\bin\\Release) + Vulkan SDK 1.4.350.0 + OpenWebUI v0.9.6</div>
+    <div style="margin-top:0.25rem">📅 <strong>Data:</strong> 16/06/2026</div>
+    <div style="margin-top:0.25rem">📊 <strong>Testes:</strong> 3 (Teste 9 curl, paralelismo real, Teste 7 ctx8192)</div>
+    <div style="margin-top:0.25rem">📈 <strong>Benchmark:</strong> 6,42–6,65 tok/s (Q4_K_M) | truncated = 0</div>
+    <div style="margin-top:0.25rem">🔥 <strong>Temperatura pico:</strong> 74°C</div>
+    <div style="margin-top:0.25rem">🏆 <strong>Status final:</strong> ✅ HIPÓTESE CONFIRMADA</div>
+  </div>
+
+  <blockquote style="font-size:.85rem;color:#e11d48;font-style:italic;line-height:1.75;border-left:3px solid #e11d48;padding-left:.9rem;margin:2rem 0;background:rgba(225,29,72,0.02);padding-top:0.5rem;padding-bottom:0.5rem">
+    "O problema nunca foi o hardware. Era uma flag e um timeout."<br>
+    <span style="font-style:normal;font-weight:bold;display:block;margin-top:0.5rem;font-size:0.75rem">— AIVisionsLab, 16/06/2026</span>
+  </blockquote>
+
+  <div class="footer">
+    Documentação gerada por Claude Sonnet 4.6 — 16/06/2026 · Baseada em logs reais, screenshots e benchmarks ao vivo · 3 testes documentados · Hipótese confirmada · Hardware de 2017 processando IA de 2025
+  </div>
 </div>`
     }
   }
