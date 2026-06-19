@@ -12,7 +12,7 @@ import {
   serverTimestamp,
   increment
 } from "firebase/firestore";
-import { db, handleFirestoreError, OperationType } from "../lib/firebase";
+import { db, handleFirestoreError, OperationType, isFirebaseDummy } from "../lib/firebase";
 import { MessageSquare, ThumbsUp, Send, CheckCircle2, AlertTriangle, Play, HelpCircle, Flame } from "lucide-react";
 
 interface Comment {
@@ -123,7 +123,7 @@ export default function VulkanDebateHub({ lang }: { lang: string }) {
 
   // Check if we start in offline fallback mode or active database
   const [isOffline, setIsOffline] = useState<boolean>(() => {
-    return localStorage.getItem("rx580_local_comments") !== null;
+    return isFirebaseDummy || localStorage.getItem("rx580_local_comments") !== null;
   });
 
   // Default seed list to display beautiful mock data preloaded so the user sees a rich page instantly
@@ -217,7 +217,7 @@ export default function VulkanDebateHub({ lang }: { lang: string }) {
 
   // Fetch comments synchronized to the selected chapter
   useEffect(() => {
-    if (isOffline) {
+    if (isOffline || isFirebaseDummy) {
       const allLocal = getLocalComments();
       const filtered = allLocal
         .filter((c) => c.chapterId === selectedChap)

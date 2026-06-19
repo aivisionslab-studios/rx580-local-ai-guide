@@ -14,6 +14,14 @@
     ],
     "rewrites": [
       {
+        "source": "/secoes_33_34_35.html",
+        "destination": "/secoes_33_34_35.html"
+      },
+      {
+        "source": "/secoes_33_34_35.json",
+        "destination": "/secoes_33_34_35.json"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }

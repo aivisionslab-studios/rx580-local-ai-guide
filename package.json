@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "node scripts/restore-og.js && vite build && node scripts/restore-og.js",
+    "build": "node scripts/restore-og.js && npx tsx scripts/generate-bridge-files.cjs && vite build && node scripts/restore-og.js",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit"

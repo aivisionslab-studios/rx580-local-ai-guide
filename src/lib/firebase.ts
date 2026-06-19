@@ -16,14 +16,23 @@ const firebaseConfig = {
   firestoreDatabaseId: metaEnv.VITE_FIREBASE_DATABASE_ID || "(default)"
 };
 
-// Initialize Firebase App
-const app = initializeApp(firebaseConfig);
+export const isFirebaseDummy = !metaEnv.VITE_FIREBASE_API_KEY || 
+  metaEnv.VITE_FIREBASE_API_KEY === "" ||
+  metaEnv.VITE_FIREBASE_API_KEY === "AIzaSyD-dummy-api-key-for-compilation-only" ||
+  typeof metaEnv.VITE_FIREBASE_API_KEY !== "string" ||
+  !metaEnv.VITE_FIREBASE_API_KEY.startsWith("AIzaSy") ||
+  metaEnv.VITE_FIREBASE_API_KEY.includes("dummy") ||
+  metaEnv.VITE_FIREBASE_API_KEY.includes("placeholder") ||
+  metaEnv.VITE_FIREBASE_API_KEY.includes("Sua_Chave");
 
-// Initialize Firestore on the custom Database ID from configuration
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+// Initialize Firebase App conditionally
+export const app = !isFirebaseDummy ? initializeApp(firebaseConfig) : null as any;
 
-// Initialize Auth
-export const auth = getAuth(app);
+// Initialize Firestore on the custom Database ID from configuration conditionally
+export const db = !isFirebaseDummy ? getFirestore(app, firebaseConfig.firestoreDatabaseId) : null as any;
+
+// Initialize Auth conditionally
+export const auth = !isFirebaseDummy ? getAuth(app) : null as any;
 
 // Authentication Provider
 export const googleProvider = new GoogleAuthProvider();
@@ -85,9 +94,23 @@ export function handleFirestoreError(
 }
 
 /**
- * Logs in utilizing standard Firebase pop-up authentication
+ * Logs in utilizing standard Firebase pop-up authentication or mock offline profiles
  */
 export async function signInWithGoogle() {
+  if (isFirebaseDummy) {
+    const mockUser = {
+      uid: "mock_hacker_2026",
+      displayName: "Silicon Hacker",
+      email: "polaris_hacker@aivisionslab.org",
+      photoURL: "",
+      emailVerified: true,
+      isAnonymous: false,
+    };
+    localStorage.setItem("rx580_mock_user", JSON.stringify(mockUser));
+    window.dispatchEvent(new CustomEvent("rx580-auth-change", { detail: mockUser }));
+    return mockUser;
+  }
+
   try {
     const result = await signInWithPopup(auth, googleProvider);
     return result.user;
@@ -101,6 +124,12 @@ export async function signInWithGoogle() {
  * Log out current active authentication session
  */
 export async function logoutUser() {
+  if (isFirebaseDummy) {
+    localStorage.removeItem("rx580_mock_user");
+    window.dispatchEvent(new CustomEvent("rx580-auth-change", { detail: null }));
+    return;
+  }
+
   try {
     await signOut(auth);
   } catch (error) {

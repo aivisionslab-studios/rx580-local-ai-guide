@@ -29,7 +29,8 @@ import {
   signInWithGoogle, 
   logoutUser, 
   handleFirestoreError, 
-  OperationType 
+  OperationType,
+  isFirebaseDummy
 } from "../lib/firebase";
 
 // Custom interface matching schema definitions in blueprint
@@ -42,6 +43,61 @@ interface Message {
   category: "general" | "benchmark" | "error";
   createdAt: any;
 }
+
+const SEED_MESSAGES: Message[] = [
+  {
+    id: "msg_1",
+    userId: "user_felipe",
+    userName: "Felipe_AMD",
+    content: "Como o Andre falou, o pulo do gato na RX 580 é usar o stable-diffusion.cpp compilado com Vulkan. Os tempos caíram pra ~72s no SD 1.5! Sensacional guia.",
+    category: "benchmark",
+    createdAt: new Date("2026-06-10T14:20:00Z")
+  },
+  {
+    id: "msg_2",
+    userId: "user_wsl",
+    userName: "WSL2_Dev",
+    content: "Alguém conseguiu rodar o Flux.1 Schnell no ComfyUI dentro do WSL2 usando menos de 32GB de RAM? Meu Xeon de 12 núcleos está sofrendo.",
+    category: "general",
+    createdAt: new Date("2026-06-11T09:15:00Z")
+  },
+  {
+    id: "msg_3",
+    userId: "user_renato",
+    userName: "Renato_Nvidia",
+    content: "Dica: caso apareça NotImplementedError com DirectML, façam o downgrade do torch-directml como indicado na seção 14. Salvou meu dia!",
+    category: "error",
+    createdAt: new Date("2026-06-12T18:30:00Z")
+  }
+];
+
+const getLocalMessages = (): Message[] => {
+  try {
+    const stored = localStorage.getItem("rx580_local_messages");
+    if (stored) {
+      return JSON.parse(stored).map((m: any) => ({
+        ...m,
+        createdAt: m.createdAt ? new Date(m.createdAt) : new Date()
+      }));
+    }
+  } catch (e) {
+    console.error("Failed to parse local messages:", e);
+  }
+  localStorage.setItem("rx580_local_messages", JSON.stringify(SEED_MESSAGES));
+  return SEED_MESSAGES;
+};
+
+const saveLocalMessage = (newMsg: Message) => {
+  const list = getLocalMessages();
+  const updated = [newMsg, ...list];
+  localStorage.setItem("rx580_local_messages", JSON.stringify(updated));
+};
+
+const deleteLocalMessage = (id: string) => {
+  const list = getLocalMessages();
+  const updated = list.filter((m) => m.id !== id);
+  localStorage.setItem("rx580_local_messages", JSON.stringify(updated));
+};
 
 interface BenchmarkSubmission {
   id: string;
@@ -58,9 +114,14 @@ interface BenchmarkSubmission {
 
 export function CommentBoard({ lang }: { lang: string }) {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [currentUser, setCurrentUser] = useState<any | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
   
+  // Offline State for messages
+  const [isOffline, setIsOffline] = useState<boolean>(() => {
+    return isFirebaseDummy || localStorage.getItem("rx580_local_messages") !== null;
+  });
+
   // Form states
   const [newContent, setNewContent] = useState("");
   const [category, setCategory] = useState<"general" | "benchmark" | "error">("general");
@@ -108,6 +169,23 @@ export function CommentBoard({ lang }: { lang: string }) {
 
   // Authenticated state listener
   useEffect(() => {
+    if (isFirebaseDummy) {
+      const stored = localStorage.getItem("rx580_mock_user");
+      if (stored) {
+        setCurrentUser(JSON.parse(stored));
+      } else {
+        setCurrentUser(null);
+      }
+      setAuthLoading(false);
+
+      const handleMockAuth = (e: Event) => {
+        const customEvent = e as CustomEvent<any>;
+        setCurrentUser(customEvent.detail);
+      };
+      window.addEventListener("rx580-auth-change", handleMockAuth);
+      return () => window.removeEventListener("rx580-auth-change", handleMockAuth);
+    }
+
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       setAuthLoading(false);
@@ -117,6 +195,11 @@ export function CommentBoard({ lang }: { lang: string }) {
 
   // Real-time messages sync
   useEffect(() => {
+    if (isOffline || isFirebaseDummy) {
+      setMessages(getLocalMessages());
+      return;
+    }
+
     const messagesCollection = collection(db, "messages");
     const messagesQuery = query(messagesCollection, orderBy("createdAt", "desc"));
 
@@ -130,12 +213,14 @@ export function CommentBoard({ lang }: { lang: string }) {
         setMessages(list);
       },
       (error) => {
-        handleFirestoreError(error, OperationType.GET, "messages");
+        console.warn("Firestore messages error, enabling offline fallback module:", error);
+        setIsOffline(true);
+        setMessages(getLocalMessages());
       }
     );
 
     return unsubscribe;
-  }, []);
+  }, [isOffline]);
 
   const handlePostMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -151,7 +236,7 @@ export function CommentBoard({ lang }: { lang: string }) {
     setErrorText(null);
 
     const messageId = "msg_" + Date.now() + "_" + Math.random().toString(36).substring(2, 6);
-    const messageDocRef = doc(db, "messages", messageId);
+    const messageDocRef = !isOffline ? doc(db, "messages", messageId) : null;
 
     const messagePayload = {
       id: messageId,
@@ -163,9 +248,17 @@ export function CommentBoard({ lang }: { lang: string }) {
       createdAt: new Date(), // using local timestamp with server mapping compatibility
     };
 
+    if (isOffline) {
+      saveLocalMessage(messagePayload);
+      setMessages(getLocalMessages());
+      setNewContent("");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       // Create/write document
-      await setDoc(messageDocRef, messagePayload);
+      await setDoc(messageDocRef!, messagePayload);
       setNewContent("");
     } catch (error) {
       try {
@@ -181,6 +274,12 @@ export function CommentBoard({ lang }: { lang: string }) {
   const handleDeleteMessage = async (messageId: string) => {
     if (!currentUser) return;
     if (!window.confirm(lang === "pt-BR" ? "Deseja realmente excluir esta mensagem?" : "Do you really want to delete this message?")) return;
+
+    if (isOffline) {
+      deleteLocalMessage(messageId);
+      setMessages(getLocalMessages());
+      return;
+    }
 
     const messageDocRef = doc(db, "messages", messageId);
     try {
@@ -395,12 +494,12 @@ export function CommentBoard({ lang }: { lang: string }) {
 
 export function BenchmarkDashboard({ lang }: { lang: string }) {
   const [submissions, setSubmissions] = useState<BenchmarkSubmission[]>([]);
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [currentUser, setCurrentUser] = useState<any | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
 
   // Check if we start in offline fallback mode or active database
   const [isOffline, setIsOffline] = useState<boolean>(() => {
-    return localStorage.getItem("rx580_local_benchmarks") !== null;
+    return isFirebaseDummy || localStorage.getItem("rx580_local_benchmarks") !== null;
   });
 
   // Form Submission states
@@ -549,6 +648,23 @@ export function BenchmarkDashboard({ lang }: { lang: string }) {
   }[lang === "pt-BR" ? "pt-BR" : "en"];
 
   useEffect(() => {
+    if (isFirebaseDummy) {
+      const stored = localStorage.getItem("rx580_mock_user");
+      if (stored) {
+        setCurrentUser(JSON.parse(stored));
+      } else {
+        setCurrentUser(null);
+      }
+      setAuthLoading(false);
+
+      const handleMockAuth = (e: Event) => {
+        const customEvent = e as CustomEvent<any>;
+        setCurrentUser(customEvent.detail);
+      };
+      window.addEventListener("rx580-auth-change", handleMockAuth);
+      return () => window.removeEventListener("rx580-auth-change", handleMockAuth);
+    }
+
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       setAuthLoading(false);
@@ -558,7 +674,7 @@ export function BenchmarkDashboard({ lang }: { lang: string }) {
 
   // Real-time benchmarks data stream mapping
   useEffect(() => {
-    if (isOffline) {
+    if (isOffline || isFirebaseDummy) {
       setSubmissions(getLocalBenchmarks());
       return;
     }
