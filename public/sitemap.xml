@@ -118,4 +118,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
+
+  <!-- Real Static Bridge Page containing full texts for Sections 33, 34 and 35 -->
+  <url>
+    <loc>https://setup-ia-local-rx580-vulkan.web.app/secoes_33_34_35.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 </urlset>

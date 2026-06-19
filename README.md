@@ -57,6 +57,7 @@ Xeon 2014   ──►  WSL2 CPU    ──►  ComfyUI       ──►  FLUX 16GB
 - [Troubleshooting](#troubleshooting)
 - [Automation Scripts](#automation-scripts)
 - [Community Timeline](#community-timeline)
+- [Pushing the 35B Limit: Qwen3.5 MoE Hybrid Experiment](#pushing-the-35b-limit-qwen35-moe-hybrid-experiment)
 - [Repository Structure](#repository-structure)
 
 ---
@@ -609,6 +610,33 @@ Credit: 艾米心 (Amihart), DH (DadHacks), leejet, ggerganov, woodrex, and all 
 
 ---
 
+## Pushing the 35B Limit: Qwen3.5 MoE Hybrid Experiment
+
+Two lab sessions pushed the dual-path stack to its extreme: running a **34.66B-parameter MoE model** (Qwen3.5-35B) on the same RX 580 8GB, using llama.cpp's automatic GPU/RAM fitting across **4 memory tiers** (VRAM → DDR4 ECC → NVMe → HDD swap).
+
+**Quick links — six focused docs, one question each:**
+
+| Doc | Answers |
+|---|---|
+| [Running 35B on 8GB VRAM](docs/qwen35-35b/running-35b-on-8gb-vram.md) | How does a 35B model fit in 8GB VRAM at all? |
+| [Benchmarks](docs/qwen35-35b/benchmarks.md) | What speed/temperature/resource usage to expect? |
+| [Thinking mode context overflow](docs/qwen35-35b/thinking-mode-context-overflow.md) | Why do reasoning-model responses get truncated? |
+| [OpenWebUI timeout vs server truncation](docs/qwen35-35b/openwebui-timeout-vs-server-truncation.md) | Why does the request "fail" while the model keeps generating? |
+| [ctx-size and quantization tuning](docs/qwen35-35b/ctx-size-and-quantization-tuning.md) | What's the working fix/config? |
+| [Model reasoning about its own architecture](docs/qwen35-35b/model-reasoning-about-its-own-architecture.md) | What did the model's `<think>` traces look like? |
+
+Full narrative lab reports (raw logs, timelines, complete test history):
+- 📄 [docs/qwen35-35b-hybrid-experiment.md](docs/qwen35-35b-hybrid-experiment.md) (Session 1)
+- 📄 [docs/qwen35-35b-proving-hypothesis.md](docs/qwen35-35b-proving-hypothesis.md) (Session 2)
+
+**Key takeaway:** the RX 580 never crashed or throttled across either session (peak 80°C, limit ~90°C). Every failure traced back to software-side timeouts and context-buffer limits — not hardware capacity. With `--ctx-size 8192` and Q4_K_M quantization, a 35B MoE model runs stable, full responses included, entirely on a 2017 GPU.
+
+```
+GPU from 2017 + CPU from 2014  ──►  34.66B parameters  ──►  5.6–6.6 tok/s
+```
+
+---
+
 ## Repository Structure
 
 ```
@@ -632,7 +660,17 @@ rx580-local-ai-guide/
 │   ├── wsl2-setup.md             # ComfyUI CPU on WSL2
 │   ├── applio-rvc.md             # Voice cloning full guide
 │   ├── whisper-cpp.md            # Audio transcription guide
-│   └── linux-ubuntu2604.md       # Ubuntu 26.04 bare-metal guide
+│   ├── linux-ubuntu2604.md       # Ubuntu 26.04 bare-metal guide
+│   ├── qwen35-35b-hybrid-experiment.md     # 35B MoE hybrid limit test — full log (Session 1)
+│   ├── qwen35-35b-proving-hypothesis.md    # 35B MoE ctx-size/curl proof — full log (Session 2)
+│   └── qwen35-35b/                         # Atomic SEO-focused docs, one question per page
+│       ├── README.md
+│       ├── running-35b-on-8gb-vram.md
+│       ├── benchmarks.md
+│       ├── thinking-mode-context-overflow.md
+│       ├── openwebui-timeout-vs-server-truncation.md
+│       ├── ctx-size-and-quantization-tuning.md
+│       └── model-reasoning-about-its-own-architecture.md
 │
 ├── vulkan-diagnostic.bat         # Quick validation (root, Windows)
 ├── vulkan-diagnostic.sh          # Quick validation (root, Linux)
